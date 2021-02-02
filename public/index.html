@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Graphiques</title>
+</head>
+
+<body>
+    <!--Div that contains the chart-->
+    <div id="chart_div"></div>
+    <div id="chart_div_3"></div>
+
+</body>
+
+<!-- A ajouter pour pouvoir utiliser google chart -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    const NAME_CHART_DIV = "chart_div";
+    var chart;
+    var data;
+
+    // Load the Visualization API and the corechart package.
+    //google.charts.load('upcoming', {packages: ['corechart']}); prendra la version à venir de google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawAreaChart);
+    google.charts.setOnLoadCallback(drawLineChart);
+
+    // Draws the chart
+    function drawChart(chart) {
+        chart.draw(createData(), createOptions("Les pizzas que j'ai mangé hier soir"));
+    }
+
+    function drawAreaChart() {
+        var chart = new google.visualization.AreaChart(document.getElementById(NAME_CHART_DIV));
+        drawChart(chart);
+    }
+
+    function drawLineChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 540]
+        ]);
+
+        var options = {
+            title: 'Company Performance',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+
+    // Creates the data table
+    function createData() {
+        data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addColumn('number', 'Price');
+        data.addRows([
+            ["Mushrooms", 3, 5],
+            ["Onions", 1, 4],
+            ["Olives", 1, 9],
+            ["Zucchini", 1, 0],
+            ["Pepperoni", 2, 4]
+        ]);
+
+        return data;
+    }
+
+
+    function createOptions(title) {
+        var options = {
+            'legend': "right",
+            'title': title,
+            'is3D': true,
+            'width': 400,
+            'height': 300
+        }
+        return options;
+    }
+
+    
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div_3'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+</html>
