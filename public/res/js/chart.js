@@ -151,6 +151,12 @@ function selectType(type) {
 function drawChart(chartType, nameDiv, columns, rows, options) {
     let func = selectType(chartType);
     var chart = new func(document.getElementById(nameDiv));
+
+    google.visualization.events.addListener(chart, 'ready', function () {
+        img.innerHTML = '<img src="' + chart.getImageURI() + '">';
+        console.log(img.innerHTML);
+    });
+    
     chart.draw(setData(columns, rows), options);
 }
 
@@ -252,6 +258,6 @@ function drawBarChart() {
     chart.draw(view, options);
 }
 
-// google.visualization.events.addListener(document.getElementById(NAME_CHART_DIV), 'ready', function () {
-//     document.getElementById(NAME_CHART_DIV).innerHTML = '<img src="' + chart.getImageURI() + '">';
+// google.visualization.events.addListener(document.getElementById(AREA_CHART_DIV), 'ready', function () {
+//     document.getElementById(AREA_CHART_DIV).innerHTML = '<img src="' + chart.getImageURI() + '">';
 // });
