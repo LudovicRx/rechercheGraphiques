@@ -1,0 +1,16 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.graphContainer {
+    width:100vw;
+    height:50vh;
+    display:flex;   
+    flex-flow: row;
+}
+
+.graphContainer > div {
+    width:50%;
+    height:100%;
+}
