@@ -83,14 +83,6 @@ google.charts.setOnLoadCallback(function () { drawPieChart(PIE_CHART_DIV, column
 google.charts.setOnLoadCallback(function () { drawChart(TYPE_CHARTS.AREA_CHART, AREA_CHART_DIV, rowsAreaChart, columnsAreaChart, optionsAreaChart) });
 google.charts.setOnLoadCallback(function () { drawChart(TYPE_CHARTS.LINE_CHART, LINE_CHART_DIV, rowsLineChart, columnsLineChart, optionsLineChart) });
 google.charts.setOnLoadCallback(drawBarChart);
-// google.charts.setOnLoadCallback(drawGraphs);
-
-// function drawGraphs() {
-//     drawPieChart(PIE_CHART_DIV, columnsPieChart, rowsPieChart, optionsPieChart);
-//     drawChart(TYPE_CHARTS.AREA_CHART, AREA_CHART_DIV, rowsAreaChart, columnsAreaChart, optionsAreaChart);
-//     drawChart(TYPE_CHARTS.LINE_CHART, LINE_CHART_DIV, rowsLineChart, columnsLineChart, optionsLineChart);
-//     drawBarChart();
-// }
 
 /**
  * Set the dataas for a graph
@@ -107,19 +99,6 @@ function setData(columns, rows) {
     data.addRows(rows);
     return data;
 }
-
-// /**
-//  * Set the options of the chart
-//  * @param {string} title Title of the chart
-//  */
-// function setOptions(title) {
-//     // Set chart options
-//     return {
-//         'title': title,
-//         // 'width': 100,
-//         // 'height': 500
-//     };
-// }
 
 /**
  * Return the function that correspond to the graph
@@ -156,7 +135,7 @@ function drawChart(chartType, nameDiv, columns, rows, options) {
         img.innerHTML = '<img src="' + chart.getImageURI() + '">';
         console.log(img.innerHTML);
     });
-    
+
     chart.draw(setData(columns, rows), options);
 }
 
@@ -168,62 +147,6 @@ function drawAreaChart(nameDiv, columns, rows, options) {
     drawChart(TYPE_CHARTS.AREA_CHART, nameDiv, columns, rows, options);
 }
 
-// // Callback that creates and populates a data table,
-// // instantiates the pie chart, passes in the data and
-// // draws it.
-// /**
-//  * Draw a Pie chart
-//  * @param {string} nameDiv name of the div
-//  * @param {array} columns 
-//  * @param {array} rows 
-//  * @param {array} options 
-//  */
-// function drawPieChart(nameDiv, columns, rows, options) {
-//     // Instantiate and draw our chart, passing in some options.
-//     var chart = new google.visualization.PieChart(document.getElementById(nameDiv));
-//     chart.draw(setData(columns, rows), setOptions(options));
-// }
-
-// function drawAreaChart() {
-//     var data = google.visualization.arrayToDataTable([
-//         ['Year', 'Sales', 'Expenses'],
-//         ['2013', 1000, 400],
-//         ['2014', 1170, 460],
-//         ['2015', 660, 1120],
-//         ['2016', 1030, 540]
-//     ]);
-
-//     var options = {
-//         title: 'Company Performance',
-//         hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
-//         vAxis: { minValue: 0 }
-//     };
-
-//     var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-//     chart.draw(data, options);
-// }
-
-// function drawLineChart() {
-//     var data = google.visualization.arrayToDataTable([
-//         ['Year', 'Sales', 'Expenses'],
-//         ['2004', 1000, 400],
-//         ['2005', 1170, 460],
-//         ['2006', 660, 1120],
-//         ['2007', 1030, 540]
-//     ]);
-
-//     var options = {
-//         title: 'Company Performance',
-//         curveType: 'function',
-//         legend: { position: 'bottom' }
-//     };
-
-//     var chart = new google.visualization.LineChart(document.getElementById('chart_div_3'));
-
-//     chart.draw(data, options);
-// }
-
-
 function drawBarChart() {
     var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" }],
@@ -232,12 +155,6 @@ function drawBarChart() {
         ["Gold", 19.30, "gold"],
         ["Platinum", 21.45, "color: #e5e4e2"]
     ]);
-
-    // var data = google.visualization.arrayToDataTable([
-    //     ['Element', 'proportion', { role: 'style' }, { role: 'annotation' }],
-    //     ["Oxygen", 20, "green", "O2"],
-    //     ["Azote", 80, "blue", "N"]
-    // ])
 
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
@@ -257,7 +174,3 @@ function drawBarChart() {
     var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
     chart.draw(view, options);
 }
-
-// google.visualization.events.addListener(document.getElementById(AREA_CHART_DIV), 'ready', function () {
-//     document.getElementById(AREA_CHART_DIV).innerHTML = '<img src="' + chart.getImageURI() + '">';
-// });
