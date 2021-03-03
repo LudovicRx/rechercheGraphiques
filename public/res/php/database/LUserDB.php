@@ -14,7 +14,7 @@ class LUserDB
      * @param int $id id of the user
      * @return array if succeed or false if failure
      */
-    static function GetUser($id)
+    public static function getUser($id)
     {
         static $ps = null;
         $sql = "SELECT id, username FROM users WHERE id = :ID;";
@@ -28,17 +28,62 @@ class LUserDB
             $ps->execute();
 
             $result = $ps->fetch(PDO::FETCH_ASSOC);
-            return new LUser($result["idUser"], $result["username"]);
+            return new LUser(intval($result["idUser"]), $result["username"]);
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
 
-    static function InsertUser($username, $password)
+    /**
+     * Insert a user in the database
+     *
+     * @param string $username username of the user
+     * @param string $password password of the user
+     * @return bool true if succeed, else false
+     */
+    public static function insertUser($username, $password)
     {
         static $ps = null;
-        $sql = "INSERT INTO users VALUES(username, password) (:USERNAME, :PASSWORD)";
+        $sql = "INSERT INTO users (username, password) VALUES(:USERNAME, :PASSWORD)";
+
+        try {
+            if ($ps == null) {
+                $ps = EDatabase::getInstance()->prepare($sql);
+            }
+
+            $ps->bindParam(":USERNAME", $username, PDO::PARAM_STR);
+            $ps->bindParam(":PASSWORD", self::hashPassword($password), PDO::PARAM_STR);
+            return $ps->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public static function updatePassword($id, $newPassword)
+    {
+        static $ps = null;
+        $sql = "UPDATE users SET password = :PASSWORD WHERE id LIKE :ID";
+
+        try {
+            if ($ps == null) {
+                $ps = EDatabase::getInstance()->prepare($sql);
+            }
+
+            $ps->bindParam(":ID", $id, PDO::PARAM_INT);
+            $ps->bindParam(":PASSWORD", self::hashPassword($newPassword), PDO::PARAM_STR);
+            return $ps->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    private static function verifyPassword($id, $oldPassword)
+    {
+        static $ps = null;
+        $sql = "SELECT password FROM users WHERE id = :ID";
 
         try {
             if ($ps == null) {
@@ -47,12 +92,25 @@ class LUserDB
 
             $ps->bindParam(":ID", $id, PDO::PARAM_INT);
             $ps->execute();
-
-            $result = $ps->fetch(PDO::FETCH_ASSOC);
-            return new LUser($result["idUser"], $result["username"]);
+            $result = $ps->fetchAll(PDO::FETCH_ASSOC);
+            // If there is only one result
+            if (count($result) === 1) {
+                return $result[0]["password"] == self::hashPassword($oldPassword);
+            }
         } catch (PDOException $e) {
             echo $e->getMessage();
-            return false;
         }
+        return false;
+    }
+
+    /**
+     * Hash the password
+     *
+     * @param string $password password to hash
+     * @return string password that is hashed
+     */
+    private static function hashPassword($password)
+    {
+        return password_hash($password, PASSWORD_BCRYPT);
     }
 }
