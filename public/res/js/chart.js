@@ -49,14 +49,15 @@ var rowsLineChart = [
     ["string", "Year"],
     ["number", "Français"],
     ["number", "Mathématiques"],
-    ["number", "Physique"]
+    ["number", "Physique"],
+    { type: 'string', role: 'annotation' }
 ];
 var columnsLineChart = [
-    ["2013", 5, 4, 5],
-    ["2014", 5.5, 3, 6],
-    ["2015", 6, 4.5, 4],
-    ["2016", 6, 4.5, 4],
-    ["2017", 6, 4.5, 4],
+    ["2013", 5, 4, 5, "oui"],
+    ["2014", 5.5, 3, 6, "oui"],
+    ["2015", 6, 4.5, 4, "oui"],
+    ["2016", 6, 4.5, 4, "oui"],
+    ["2017", 6, 4.5, 4, "oui"],
 ];
 var optionsLineChart = {
     title: "Notes obtenues cette année",
@@ -68,9 +69,10 @@ var optionsLineChart = {
         maxValue: 6,
         minValue: 0
     },
-    // curveType: "function",
-    legend: { position: 'bottom' },
-    colors: ["red", "green", "yellow"]
+    // ne fonctionne pas avec les min et max
+    // curveType: "function", 
+    legend: { position: 'bottom' }
+    // colors: ["red", "green", "yellow"]
 }
 
 
@@ -93,7 +95,11 @@ function setData(columns, rows) {
     // Create the data table.
     var data = new google.visualization.DataTable();
     for (let i = 0; i < columns.length; i++) {
-        data.addColumn(columns[i][0], columns[i][1]);
+        if (Array.isArray(columns[i])) {
+            data.addColumn(columns[i][0], columns[i][1]);
+        } else {
+            data.addColumn(columns[i]);
+        }
     }
 
     data.addRows(rows);
@@ -133,7 +139,7 @@ function drawChart(chartType, nameDiv, columns, rows, options) {
 
     google.visualization.events.addListener(chart, 'ready', function () {
         img.innerHTML = '<img src="' + chart.getImageURI() + '">';
-        console.log(img.innerHTML);
+        // console.log(img.innerHTML);
     });
 
     chart.draw(setData(columns, rows), options);
