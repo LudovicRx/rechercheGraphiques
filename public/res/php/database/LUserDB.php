@@ -61,6 +61,13 @@ class LUserDB
         }
     }
 
+    /**
+     * Update the password from a user
+     *
+     * @param int $id id of the user
+     * @param string $newPassword new password for the user
+     * @return bool true if succeed, else false
+     */
     public static function updatePassword($id, $newPassword)
     {
         static $ps = null;
@@ -80,7 +87,14 @@ class LUserDB
         }
     }
 
-    private static function verifyPassword($id, $oldPassword)
+    /**
+     * Verify that the password is the same as before
+     *
+     * @param int $id id of the user
+     * @param string $oldPassword old password of the user
+     * @return bool true if the same password, else false
+     */
+    public static function verifyPassword($id, $oldPassword)
     {
         static $ps = null;
         $sql = "SELECT password FROM users WHERE id = :ID";
@@ -112,5 +126,31 @@ class LUserDB
     private static function hashPassword($password)
     {
         return password_hash($password, PASSWORD_BCRYPT);
+    }
+
+    /**
+     * Update the usr
+     *
+     * @param int $id id of the user
+     * @param string $newUsername new username for the user
+     * @return bool true if succeed, else false
+     */
+    public static function updateUser($id, $newUsername)
+    {
+        static $ps = null;
+        $sql = "UPDATE users SET username = :USERNAME WHERE id LIKE :ID";
+
+        try {
+            if ($ps == null) {
+                $ps = EDatabase::getInstance()->prepare($sql);
+            }
+
+            $ps->bindParam(":ID", $id, PDO::PARAM_INT);
+            $ps->bindParam(":USERNAME", $newUsername, PDO::PARAM_STR);
+            return $ps->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }
