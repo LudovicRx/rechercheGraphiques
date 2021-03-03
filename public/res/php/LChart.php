@@ -1,11 +1,21 @@
 <?php
-// Desc.     :   Classe qui contient 
-
 /**
  * Class that is a container for chart 
+ * 
+ * @author Ludovic Roux
+ * 
  */
 class LChart
 {
+    /**
+     * Containes all different types of chart
+     */
+    const TYPE_CHART = array(
+        "BAR_CHART" => "BarChart",
+        "PIE_CHART" => "PieChart",
+        "LINE_CHART" => "LineChart",
+        "BARH_CHART" => "BarChart"
+    );
 
     /**
      * Create an object of type LChart
@@ -16,15 +26,14 @@ class LChart
      * @param string $InTypeAxisX
      * @param string $InNameAxisY
      * @param string $InTypeAxisY
-     * @param array $InData
      */
-    public function __construct($InId = 0, $InName = "", $InNameAxisX = "", $InTypeAxisX = "", $InNameAxisY = "", $InTypeAxisY = "", $InData = array())
+    public function __construct($InId = 0, $InName = "", $InNameAxisX = "", $InTypeAxisX = "", $InNameAxisY = "", $InTypeAxisY = "", $InChartType = "")
     {
         $this->Id = $InId;
         $this->Name = $InName;
         $this->AxisX = new LAxis($InNameAxisX, $InTypeAxisX);
         $this->AxisY = new LAxis($InNameAxisY, $InTypeAxisY);
-        $this->Data = $InData;
+        $this->ChartType = $InChartType;
     }
 
     /**
@@ -38,7 +47,7 @@ class LChart
      * Name of the Chart
      *
      * @var string
-     */ 
+     */
     public $Name;
 
     /**
@@ -56,9 +65,9 @@ class LChart
     public $AxisY;
 
     /**
-     * Data of the chart
+     * Type of the chart
      *
-     * @var array
+     * @var string
      */
-    public $Data;
+    public $InChartType;
 }

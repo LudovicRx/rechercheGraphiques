@@ -1,6 +1,4 @@
 <?php
-// Desc.     :   Class de la database
-
 /**
  * @remark Mettre le bon chemin d'accès à votre fichier contenant les constantes
  */
