@@ -1,6 +1,6 @@
 <?php
-// Project   :   Recherche graphiques
-// Desc.     :   All of constant for the connection to the database
+// Desc.     :   Constantes de la base de données
+
 define("DB_TYPE", "mysql");
 define("DB_HOST", "127.0.0.1");
 define("DB_PORT", 3306);

@@ -1,3 +1,6 @@
+<?php
+// Desc.     :   Page d'index
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,7 +16,7 @@
     <link rel="stylesheet" href="res/css/main.css">
 </head>
 
-<body> 
+<body>
     <!--Div that contains the chart-->
     <div class="graphContainer">
         <div id="area_chart"></div>

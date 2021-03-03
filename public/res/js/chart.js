@@ -1,3 +1,4 @@
+// Desc.     :   Page pour construire les chart
 
 // Constantes
 const TYPE_CHARTS = Object.freeze({

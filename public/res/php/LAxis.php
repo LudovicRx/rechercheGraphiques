@@ -1,4 +1,6 @@
 <?php
+// Desc.     :   Classe conteneur pour un axe
+
 /**
  * Class that contains an axis
  */

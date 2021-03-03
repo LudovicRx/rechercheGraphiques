@@ -1,4 +1,5 @@
 <?php
+// Desc.     :   Classe qui contient 
 
 /**
  * Class that is a container for chart 
