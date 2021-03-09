@@ -1,5 +1,12 @@
 <?php
 /**
+ * EDatabase
+ * -------
+ * @file
+ * @brief	Class EDatabase
+ */
+
+/**
  * @remark Mettre le bon chemin d'accès à votre fichier contenant les constantes
  */
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'const.inc.php';

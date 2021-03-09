@@ -1,9 +1,14 @@
 <?php
+/** LChart
+ *  -------
+ *  @file
+ *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @brief Class LChart
+ *  @author Ludovic Roux
+ */
+
 /**
- * Class that is a container for chart 
- * 
- * @author Ludovic Roux
- * 
+ * @brief Class that is a container for charts
  */
 class LChart
 {
@@ -20,12 +25,13 @@ class LChart
     /**
      * Create an object of type LChart
      *
-     * @param integer $InId
-     * @param string $InName
-     * @param string $InNameAxisX
-     * @param string $InTypeAxisX
-     * @param string $InNameAxisY
-     * @param string $InTypeAxisY
+     * @param integer $InId id of the chart
+     * @param string $InName name of the chart
+     * @param string $InNameAxisX name of x axis
+     * @param string $InTypeAxisX type of x axis
+     * @param string $InNameAxisY name of y axis
+     * @param string $InTypeAxisY type of y axis
+     * @param string $InChartType chart type
      */
     public function __construct($InId = 0, $InName = "", $InNameAxisX = "", $InTypeAxisX = "", $InNameAxisY = "", $InTypeAxisY = "", $InChartType = "")
     {
@@ -36,38 +42,18 @@ class LChart
         $this->ChartType = $InChartType;
     }
 
-    /**
-     * Id of the chart
-     *
-     * @var int
-     */
+    /**> Id of the chart */
     public $Id;
 
-    /**
-     * Name of the Chart
-     *
-     * @var string
-     */
+    /**> Name of the Chart */
     public $Name;
 
-    /**
-     * Axis X
-     *
-     * @var LAxis
-     */
+    /**> Axis X */
     public $AxisX;
 
-    /**
-     * Axis Y
-     *
-     * @var LAxis
-     */
+    /**> Axis Y */
     public $AxisY;
 
-    /**
-     * Type of the chart
-     *
-     * @var string
-     */
+    /**> Type of the chart */
     public $InChartType;
 }

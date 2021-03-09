@@ -1,0 +1,8 @@
+<map id="getInstance" name="getInstance">
+<area shape="rect" id="node1" title="Returns DB instance or create initial connection." alt="" coords="228,107,317,133"/>
+<area shape="rect" id="node2" href="$class_l_user_d_b.html#ad50e0d3889fbd8b42420d604dff9a448" title=" " alt="" coords="31,5,154,32"/>
+<area shape="rect" id="node3" href="$class_l_user_d_b.html#a2dcad3eed034e9f8e77820a4a3e83b1a" title=" " alt="" coords="24,56,161,83"/>
+<area shape="rect" id="node4" href="$class_l_user_d_b.html#a6e15fa5108c9b826f4eb4bcd36e6d4f2" title=" " alt="" coords="5,107,180,133"/>
+<area shape="rect" id="node5" href="$class_l_user_d_b.html#a19b650050b21b1eaa420bdc8b6a8a5fe" title=" " alt="" coords="21,157,165,184"/>
+<area shape="rect" id="node6" href="$class_l_user_d_b.html#a5f0b732017840365ee0bfbdeaf4e101c" title=" " alt="" coords="11,208,175,235"/>
+</map>

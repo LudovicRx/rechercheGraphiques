@@ -1,6 +1,10 @@
 <?php
-// Desc.     :   Constantes de la base de données
-
+/** Constants User
+ *  -------
+ *  @copyright Copyright (c) 2020 Constantes User, MIT License, See the LICENSE file for copying permissions.
+ *  @brief Constant for DB
+ *  @author Ludovic Roux
+ */
 define("DB_TYPE", "mysql");
 define("DB_HOST", "127.0.0.1");
 define("DB_PORT", 3306);

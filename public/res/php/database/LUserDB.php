@@ -1,11 +1,15 @@
 <?php
-
-/**
- * Class that makes query on the database for a user
- * 
- * @author Ludovic Roux
- * 
+/** LUserDB
+ *  -------
+ *  @file
+ *  @copyright Copyright (c) 2020 LUserDB, MIT License, See the LICENSE file for copying permissions.
+ *  @brief Class LUserDB
+ *  @author Ludovic Roux
  */
+
+ /**
+  * @brief Class that makes query on DB for users
+  */
 class LUserDB
 {
     /**
@@ -28,7 +32,7 @@ class LUserDB
             $ps->execute();
 
             $result = $ps->fetch(PDO::FETCH_ASSOC);
-            return new LUser(intval($result["idUser"]), $result["username"]);
+            return new LUser(intval($result["id"]), $result["username"]);
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;

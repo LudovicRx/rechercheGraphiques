@@ -1,0 +1,154 @@
+\hypertarget{class_l_user_d_b}{}\doxysection{LUser\+DB Class Reference}
+\label{class_l_user_d_b}\index{LUserDB@{LUserDB}}
+
+
+Class that makes query on DB for users.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_l_user_d_b_ad50e0d3889fbd8b42420d604dff9a448}{get\+User}} (\$id)
+\item 
+static \mbox{\hyperlink{class_l_user_d_b_a2dcad3eed034e9f8e77820a4a3e83b1a}{insert\+User}} (\$username, \$password)
+\item 
+static \mbox{\hyperlink{class_l_user_d_b_a6e15fa5108c9b826f4eb4bcd36e6d4f2}{update\+Password}} (\$id, \$new\+Password)
+\item 
+static \mbox{\hyperlink{class_l_user_d_b_a5f0b732017840365ee0bfbdeaf4e101c}{verify\+Password}} (\$id, \$old\+Password)
+\item 
+static \mbox{\hyperlink{class_l_user_d_b_a19b650050b21b1eaa420bdc8b6a8a5fe}{update\+User}} (\$id, \$new\+Username)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that makes query on DB for users. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_user_d_b_ad50e0d3889fbd8b42420d604dff9a448}\label{class_l_user_d_b_ad50e0d3889fbd8b42420d604dff9a448}} 
+\index{LUserDB@{LUserDB}!getUser@{getUser}}
+\index{getUser@{getUser}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}}
+{\footnotesize\ttfamily static get\+User (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get a specific user thanks his id
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & id of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array if succeed or false if failure 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{class_l_user_d_b_ad50e0d3889fbd8b42420d604dff9a448_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_l_user_d_b_a2dcad3eed034e9f8e77820a4a3e83b1a}\label{class_l_user_d_b_a2dcad3eed034e9f8e77820a4a3e83b1a}} 
+\index{LUserDB@{LUserDB}!insertUser@{insertUser}}
+\index{insertUser@{insertUser}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{insertUser()}{insertUser()}}
+{\footnotesize\ttfamily static insert\+User (\begin{DoxyParamCaption}\item[{}]{\$username,  }\item[{}]{\$password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Insert a user in the database
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$username} & username of the user \\
+\hline
+string & {\em \$password} & password of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if succeed, else false 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{class_l_user_d_b_a2dcad3eed034e9f8e77820a4a3e83b1a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_l_user_d_b_a6e15fa5108c9b826f4eb4bcd36e6d4f2}\label{class_l_user_d_b_a6e15fa5108c9b826f4eb4bcd36e6d4f2}} 
+\index{LUserDB@{LUserDB}!updatePassword@{updatePassword}}
+\index{updatePassword@{updatePassword}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{updatePassword()}{updatePassword()}}
+{\footnotesize\ttfamily static update\+Password (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$new\+Password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Update the password from a user
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & id of the user \\
+\hline
+string & {\em \$new\+Password} & new password for the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if succeed, else false 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{class_l_user_d_b_a6e15fa5108c9b826f4eb4bcd36e6d4f2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_l_user_d_b_a19b650050b21b1eaa420bdc8b6a8a5fe}\label{class_l_user_d_b_a19b650050b21b1eaa420bdc8b6a8a5fe}} 
+\index{LUserDB@{LUserDB}!updateUser@{updateUser}}
+\index{updateUser@{updateUser}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{updateUser()}{updateUser()}}
+{\footnotesize\ttfamily static update\+User (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$new\+Username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Update the usr
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & id of the user \\
+\hline
+string & {\em \$new\+Username} & new username for the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if succeed, else false 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{class_l_user_d_b_a19b650050b21b1eaa420bdc8b6a8a5fe_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_l_user_d_b_a5f0b732017840365ee0bfbdeaf4e101c}\label{class_l_user_d_b_a5f0b732017840365ee0bfbdeaf4e101c}} 
+\index{LUserDB@{LUserDB}!verifyPassword@{verifyPassword}}
+\index{verifyPassword@{verifyPassword}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{verifyPassword()}{verifyPassword()}}
+{\footnotesize\ttfamily static verify\+Password (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$old\+Password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Verify that the password is the same as before
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & id of the user \\
+\hline
+string & {\em \$old\+Password} & old password of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the same password, else false 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_l_user_d_b_a5f0b732017840365ee0bfbdeaf4e101c_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+public/res/php/database/\mbox{\hyperlink{_l_user_d_b_8php}{LUser\+DB.\+php}}\end{DoxyCompactItemize}
