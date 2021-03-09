@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['updatepassword_25',['updatePassword',['../class_l_user_d_b.html#a6e15fa5108c9b826f4eb4bcd36e6d4f2',1,'LUserDB']]],
-  ['updateuser_26',['updateUser',['../class_l_user_d_b.html#a19b650050b21b1eaa420bdc8b6a8a5fe',1,'LUserDB']]]
+  ['verifypassword_26',['verifyPassword',['../class_l_user_d_b.html#a5f0b732017840365ee0bfbdeaf4e101c',1,'LUserDB']]]
 ];

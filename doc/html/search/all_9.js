@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['type_5fchart_24',['TYPE_CHART',['../class_l_chart.html#aa3850e96575a4d6258a717750dfd0f47',1,'LChart']]]
+  ['updatepassword_24',['updatePassword',['../class_l_user_d_b.html#a6e15fa5108c9b826f4eb4bcd36e6d4f2',1,'LUserDB']]],
+  ['updateuser_25',['updateUser',['../class_l_user_d_b.html#a19b650050b21b1eaa420bdc8b6a8a5fe',1,'LUserDB']]]
 ];

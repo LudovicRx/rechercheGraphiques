@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "$_adegilrtuv",
+  0: "$_degilrtuv",
   1: "el",
-  2: "adil",
+  2: "dil",
   3: "_giuv",
   4: "$t",
   5: "r"
