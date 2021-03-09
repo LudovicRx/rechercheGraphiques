@@ -1,16 +1,18 @@
 <?php
+
 /** LAxis
  *  -------
  *  @file
  *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Class LAxis
- *  @author Ludovic Roux
+ *  @author ludovic.rx@eduge.ch
  */
 
 /**
  * @brief Class that contains an axis
  */
-class LAxis {
+class LAxis
+{
     /**
      * Constructor that create an object of type LAxis
      *
@@ -18,7 +20,8 @@ class LAxis {
      * @param string $InType type of the axis
      * @param array $InData array of the datas
      */
-    public function __construct($InName = "", $InType = "", $InData = array()) {
+    public function __construct(string $InName = "", string $InType = "", array $InData = array())
+    {
         $this->Name = $InName;
         $this->Type = $InType;
     }
@@ -28,4 +31,4 @@ class LAxis {
 
     /**> Type of the axis */
     public $Type;
-} 
+}

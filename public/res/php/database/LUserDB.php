@@ -3,9 +3,9 @@
 /** LUserDB
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 LUserDB, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2020 Recherche graphiques, MIT License, See the LICENSE file for copying permissions.
  *  @brief Class LUserDB
- *  @author Ludovic Roux
+ *  @author ludovic.rx@eduge.ch
  */
 
 /**
@@ -32,7 +32,7 @@ class LUserDB
      * @param int $id id of the user
      * @return LUser if succeed, else false if failure
      */
-    public static function getUserById($id)
+    public static function getUserById(int $id)
     {
         static $ps = null;
         $sql = "SELECT id, email, username, password FROM users WHERE id = :ID;";
@@ -59,7 +59,7 @@ class LUserDB
      * @param string $email email of the user
      * @return LUSer if succeed, else false
      */
-    public static function getUserByEmail($email)
+    public static function getUserByEmail(string $email)
     {
         static $ps = null;
         $sql = "SELECT id, email, username, password FROM users WHERE email LIKE :EMAIL;";
@@ -72,8 +72,9 @@ class LUserDB
             $ps->bindParam(":EMAIL", $email, PDO::PARAM_INT);
             $ps->execute();
 
-            $result = $ps->fetch(PDO::FETCH_ASSOC);
-            return new LUser(intval($result["id"]), $result["email"], $result["username"]);
+            if ($result = $ps->fetch(PDO::FETCH_ASSOC)) {
+                return new LUser(intval($result["id"]), $result["email"], $result["username"]);
+            }
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
@@ -87,7 +88,7 @@ class LUserDB
      * @param string $password password of the user
      * @return bool true if succeed, else false
      */
-    public static function insertUser($username, $password)
+    public static function insertUser(string $username, string $password)
     {
         static $ps = null;
         $sql = "INSERT INTO users (username, password) VALUES(:USERNAME, :PASSWORD)";
@@ -113,7 +114,7 @@ class LUserDB
      * @param string $newPassword new password for the user
      * @return bool true if succeed, else false
      */
-    public static function updatePassword($id, $newPassword)
+    public static function updatePassword(int $id, string $newPassword)
     {
         static $ps = null;
         $sql = "UPDATE users SET password = :PASSWORD WHERE id LIKE :ID";
@@ -139,7 +140,7 @@ class LUserDB
      * @param string $oldPassword old password of the user
      * @return bool true if the same password, else false
      */
-    public static function verifyPassword($id, $oldPassword)
+    public static function verifyPassword(int $id, string $oldPassword)
     {
         static $ps = null;
         $sql = "SELECT password FROM users WHERE id = :ID";
@@ -168,19 +169,19 @@ class LUserDB
      * @param string $password password to hash
      * @return string password that is hashed
      */
-    private static function hashPassword($password)
+    private static function hashPassword(string $password)
     {
         return password_hash($password, PASSWORD_BCRYPT);
     }
 
     /**
-     * Update the usr
+     * Update the user
      *
      * @param int $id id of the user
      * @param string $newUsername new username for the user
      * @return bool true if succeed, else false
      */
-    public static function updateUser($id, $newUsername)
+    public static function updateUser(int $id, string $newUsername)
     {
         static $ps = null;
         $sql = "UPDATE users SET username = :USERNAME WHERE id LIKE :ID";

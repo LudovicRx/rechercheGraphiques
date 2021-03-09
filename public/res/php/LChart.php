@@ -1,10 +1,11 @@
 <?php
+
 /** LChart
  *  -------
  *  @file
  *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Class LChart
- *  @author Ludovic Roux
+ *  @author ludovic.rx@eduge.ch
  */
 
 /**
@@ -12,9 +13,7 @@
  */
 class LChart
 {
-    /**
-     * Containes all different types of chart
-     */
+    /**> Containes all different types of chart */
     const TYPE_CHART = array(
         "BAR_CHART" => "BarChart",
         "PIE_CHART" => "PieChart",
@@ -33,7 +32,7 @@ class LChart
      * @param string $InTypeAxisY type of y axis
      * @param string $InChartType chart type
      */
-    public function __construct($InId = 0, $InName = "", $InNameAxisX = "", $InTypeAxisX = "", $InNameAxisY = "", $InTypeAxisY = "", $InChartType = "")
+    public function __construct(int $InId = 0, string $InName = "", string $InNameAxisX = "", string $InTypeAxisX = "", string  $InNameAxisY = "", string  $InTypeAxisY = "", string $InChartType = "")
     {
         $this->Id = $InId;
         $this->Name = $InName;

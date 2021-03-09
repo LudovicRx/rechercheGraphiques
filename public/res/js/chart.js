@@ -1,6 +1,14 @@
-// Desc.     :   Page pour construire les chart
+/** Chart 
+ *  -------
+ *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @brief File that handle charts in js
+ *  @author ludovic.rx@eduge.ch
+ */
 
 // Constantes
+/**
+ * Different type of charts
+ */
 const TYPE_CHARTS = Object.freeze({
     PIE_CHART: "PieChart",
     AREA_CHART: "AreaChart",
@@ -8,11 +16,23 @@ const TYPE_CHARTS = Object.freeze({
     BAR_CHART: "BarChart"
 });
 
+/**
+ * Name of the chart div
+ */
 const PIE_CHART_DIV = "pie_chart";
+/**
+ * Name of the area chart
+ */
 const AREA_CHART_DIV = "area_chart";
+/**
+ * Name of the line chart
+ */
 const LINE_CHART_DIV = "line_chart";
 
 // Variables
+/**
+ * Rows for pie chart
+ */
 var rowsPieChart = [
     ['Mushrooms', 3],
     ['Onions', 1],
@@ -20,32 +40,50 @@ var rowsPieChart = [
     ['Zucchini', 1],
     ['Pepperoni', 2]
 ];
+/**
+ * Columns for pie chart
+ */
 var columnsPieChart = [
     ["string", "Topping"],
     ["number", "Slices"]
 ];
+/**
+ * Options for pie chart
+ */
 var optionsPieChart = {
     title: "How much I ate last night",
     is3D: true
 };
 
+/**
+ * Rows for area chart
+ */
 var rowsAreaChart = [
     ["string", "Year"],
     ["number", "Sales"],
     ["number", "Expenses"]
 ];
+/**
+ * Columns for area chart
+ */
 var columnsAreaChart = [
     ['2013', 1000, 400],
     ['2014', 1170, 460],
     ['2015', 660, 1120],
     ['2016', 1030, 540]
 ];
+/**
+ * Options for area chart
+ */
 var optionsAreaChart = {
     title: 'Company Performance',
     curveType: 'function',
     legend: { position: 'bottom' }
 };
 
+/**
+ *  Rows for line chart
+ */
 var rowsLineChart = [
     ["string", "Year"],
     ["number", "Français"],
@@ -53,6 +91,9 @@ var rowsLineChart = [
     ["number", "Physique"],
     { type: 'string', role: 'annotation' }
 ];
+/**
+ * Columns for line chart
+ */
 var columnsLineChart = [
     ["2013", 5, 4, 5, "oui"],
     ["2014", 5.5, 3, 6, "oui"],
@@ -60,6 +101,9 @@ var columnsLineChart = [
     ["2016", 6, 4.5, 4, "oui"],
     ["2017", 6, 4.5, 4, "oui"],
 ];
+/**
+ * Options for line chart
+ */
 var optionsLineChart = {
     title: "Notes obtenues cette année",
     hAxis: {
@@ -146,14 +190,31 @@ function drawChart(chartType, nameDiv, columns, rows, options) {
     chart.draw(setData(columns, rows), options);
 }
 
+/**
+ * Draw a pie chart
+ * @param {string} nameDiv name of the div that contains graph
+ * @param {string[][]} columns columns with type and name
+ * @param {array} rows datas for the rows
+ * @param {array} options options for the graph
+ */
 function drawPieChart(nameDiv, columns, rows, options) {
     drawChart(TYPE_CHARTS.PIE_CHART, nameDiv, columns, rows, options);
 }
 
+/**
+ * Draw a area chart
+ * @param {string} nameDiv name of the div that contains graph
+ * @param {string[][]} columns columns with type and name
+ * @param {array} rows datas for the rows
+ * @param {array} options options for the graph
+ */
 function drawAreaChart(nameDiv, columns, rows, options) {
     drawChart(TYPE_CHARTS.AREA_CHART, nameDiv, columns, rows, options);
 }
 
+/**
+ * Draw a bar chart
+ */
 function drawBarChart() {
     var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" }],

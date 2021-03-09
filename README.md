@@ -1,7 +1,7 @@
 # Recherche sur les graphiques
 
 ## Auteur
-Ludovic Roux
+ludovic.rx@eduge.ch
 
 ## Liens utiles
 

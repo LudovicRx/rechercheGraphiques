@@ -20,7 +20,7 @@ class LUser
      * @param string $InEmail email of the user
      * @param string $InUsername username of the user
      */
-    public function __construct($InId = 0, $InEmail = "", $InUsername = "")
+    public function __construct(int $InId = 0, string $InEmail = "", string $InUsername = "")
     {
         $this->Id = $InId;
         $this->Email = $InEmail;

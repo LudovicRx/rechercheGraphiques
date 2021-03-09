@@ -8,7 +8,7 @@ Class that is a container for charts.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_l_chart_a04bce72b477da62708fd17475cd0adb6}{\+\_\+\+\_\+construct}} (\$In\+Id=0, \$In\+Name=\char`\"{}\char`\"{}, \$In\+Name\+AxisX=\char`\"{}\char`\"{}, \$In\+Type\+AxisX=\char`\"{}\char`\"{}, \$In\+Name\+AxisY=\char`\"{}\char`\"{}, \$In\+Type\+AxisY=\char`\"{}\char`\"{}, \$In\+Chart\+Type=\char`\"{}\char`\"{})
+\mbox{\hyperlink{class_l_chart_af5581e891454101fd59cff4c39e0d50b}{\+\_\+\+\_\+construct}} (int \$In\+Id=0, string \$In\+Name=\char`\"{}\char`\"{}, string \$In\+Name\+AxisX=\char`\"{}\char`\"{}, string \$In\+Type\+AxisX=\char`\"{}\char`\"{}, string \$In\+Name\+AxisY=\char`\"{}\char`\"{}, string \$In\+Type\+AxisY=\char`\"{}\char`\"{}, string \$In\+Chart\+Type=\char`\"{}\char`\"{})
 \end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
@@ -31,11 +31,11 @@ const \mbox{\hyperlink{class_l_chart_aa3850e96575a4d6258a717750dfd0f47}{TYPE\+\_
 Class that is a container for charts. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_l_chart_a04bce72b477da62708fd17475cd0adb6}\label{class_l_chart_a04bce72b477da62708fd17475cd0adb6}} 
+\mbox{\Hypertarget{class_l_chart_af5581e891454101fd59cff4c39e0d50b}\label{class_l_chart_af5581e891454101fd59cff4c39e0d50b}} 
 \index{LChart@{LChart}!\_\_construct@{\_\_construct}}
 \index{\_\_construct@{\_\_construct}!LChart@{LChart}}
 \doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
-{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$\+In\+Id = {\ttfamily 0},  }\item[{}]{\$\+In\+Name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Name\+AxisX = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Type\+AxisX = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Name\+AxisY = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Type\+AxisY = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Chart\+Type = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{int}]{\$\+In\+Id = {\ttfamily 0},  }\item[{string}]{\$\+In\+Name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Name\+AxisX = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Type\+AxisX = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Name\+AxisY = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Type\+AxisY = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Chart\+Type = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
 Create an object of type \mbox{\hyperlink{class_l_chart}{LChart}}
 
@@ -56,6 +56,17 @@ string & {\em \$\+In\+Type\+AxisY} & type of y axis \\
 string & {\em \$\+In\+Chart\+Type} & chart type \\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         \$this-\/>Id = \$InId;}
+\DoxyCodeLine{38         \$this-\/>Name = \$InName;}
+\DoxyCodeLine{39         \$this-\/>AxisX = \textcolor{keyword}{new} \mbox{\hyperlink{class_l_axis}{LAxis}}(\$InNameAxisX, \$InTypeAxisX);}
+\DoxyCodeLine{40         \$this-\/>AxisY = \textcolor{keyword}{new} \mbox{\hyperlink{class_l_axis}{LAxis}}(\$InNameAxisY, \$InTypeAxisY);}
+\DoxyCodeLine{41         \$this-\/>ChartType = \mbox{\hyperlink{class_l_chart_a66513636d32a733098c61e9390d3ab29}{\$InChartType}};}
+\DoxyCodeLine{42     \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Field Documentation}
@@ -115,7 +126,9 @@ Name of the Chart \end{quote}
 \DoxyCodeLine{    )}
 
 \end{DoxyCode}
-Containes all different types of chart 
+\begin{quote}
+Containes all different types of chart \end{quote}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -8,14 +8,19 @@ This class is a container for a user.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_l_user_a483277d53436ba94bf2c8dd383994376}{\+\_\+\+\_\+construct}} (\$In\+Id=0, \$In\+Username=\char`\"{}\char`\"{})
+\mbox{\hyperlink{class_l_user_a9389d44bb1b149a412eff90a8f8d943b}{\+\_\+\+\_\+construct}} (int \$In\+Id=0, string \$In\+Email=\char`\"{}\char`\"{}, string \$In\+Username=\char`\"{}\char`\"{})
 \end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_l_user_ae24f09f6f3375b938ae2625f53cea439}{\$\+Id}}
+\mbox{\Hypertarget{class_l_user_ae24f09f6f3375b938ae2625f53cea439}\label{class_l_user_ae24f09f6f3375b938ae2625f53cea439}} 
+{\bfseries \$\+Id}
 \item 
-\mbox{\hyperlink{class_l_user_a0e2ea0d42b9b800eb5bf8660587f5f7f}{\$\+Username}}
+\mbox{\Hypertarget{class_l_user_a46da2886d0fe6510e2e0cd92aae2e79d}\label{class_l_user_a46da2886d0fe6510e2e0cd92aae2e79d}} 
+{\bfseries \$\+Email}
+\item 
+\mbox{\Hypertarget{class_l_user_a0e2ea0d42b9b800eb5bf8660587f5f7f}\label{class_l_user_a0e2ea0d42b9b800eb5bf8660587f5f7f}} 
+{\bfseries \$\+Username}
 \end{DoxyCompactItemize}
 
 
@@ -23,40 +28,32 @@ This class is a container for a user.
 This class is a container for a user. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_l_user_a483277d53436ba94bf2c8dd383994376}\label{class_l_user_a483277d53436ba94bf2c8dd383994376}} 
+\mbox{\Hypertarget{class_l_user_a9389d44bb1b149a412eff90a8f8d943b}\label{class_l_user_a9389d44bb1b149a412eff90a8f8d943b}} 
 \index{LUser@{LUser}!\_\_construct@{\_\_construct}}
 \index{\_\_construct@{\_\_construct}!LUser@{LUser}}
 \doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
-{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$\+In\+Id = {\ttfamily 0},  }\item[{}]{\$\+In\+Username = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{int}]{\$\+In\+Id = {\ttfamily 0},  }\item[{string}]{\$\+In\+Email = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Username = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
 Constructor that create a user
 
 
 \begin{DoxyParams}[1]{Parameters}
-integer & {\em \$\+In\+Id} & \\
+integer & {\em \$\+In\+Id} & id of the user \\
 \hline
-string & {\em \$\+In\+Username} & \\
+string & {\em \$\+In\+Email} & email of the user \\
+\hline
+string & {\em \$\+In\+Username} & username of the user \\
 \hline
 \end{DoxyParams}
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \$this-\/>Id = \$InId;}
+\DoxyCodeLine{26         \$this-\/>Email = \$InEmail;}
+\DoxyCodeLine{27         \$this-\/>Username = \$InUsername;}
+\DoxyCodeLine{28     \}}
 
-\doxysubsection{Field Documentation}
-\mbox{\Hypertarget{class_l_user_ae24f09f6f3375b938ae2625f53cea439}\label{class_l_user_ae24f09f6f3375b938ae2625f53cea439}} 
-\index{LUser@{LUser}!\$Id@{\$Id}}
-\index{\$Id@{\$Id}!LUser@{LUser}}
-\doxysubsubsection{\texorpdfstring{\$Id}{$Id}}
-{\footnotesize\ttfamily \$Id}
-
-\begin{quote}
-Id of the user \end{quote}
-\mbox{\Hypertarget{class_l_user_a0e2ea0d42b9b800eb5bf8660587f5f7f}\label{class_l_user_a0e2ea0d42b9b800eb5bf8660587f5f7f}} 
-\index{LUser@{LUser}!\$Username@{\$Username}}
-\index{\$Username@{\$Username}!LUser@{LUser}}
-\doxysubsubsection{\texorpdfstring{\$Username}{$Username}}
-{\footnotesize\ttfamily \$Username}
-
-\begin{quote}
-Username of the user \end{quote}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

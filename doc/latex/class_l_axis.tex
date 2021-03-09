@@ -8,7 +8,7 @@ Class that contains an axis.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_l_axis_ae830f0ea89130dcc260ea318071e28af}{\+\_\+\+\_\+construct}} (\$In\+Name=\char`\"{}\char`\"{}, \$In\+Type=\char`\"{}\char`\"{}, \$In\+Data=array())
+\mbox{\hyperlink{class_l_axis_a859dbffc3030996974ded1470e523f27}{\+\_\+\+\_\+construct}} (string \$In\+Name=\char`\"{}\char`\"{}, string \$In\+Type=\char`\"{}\char`\"{}, array \$In\+Data=array())
 \end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
@@ -23,11 +23,11 @@ Class that contains an axis.
 Class that contains an axis. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_l_axis_ae830f0ea89130dcc260ea318071e28af}\label{class_l_axis_ae830f0ea89130dcc260ea318071e28af}} 
+\mbox{\Hypertarget{class_l_axis_a859dbffc3030996974ded1470e523f27}\label{class_l_axis_a859dbffc3030996974ded1470e523f27}} 
 \index{LAxis@{LAxis}!\_\_construct@{\_\_construct}}
 \index{\_\_construct@{\_\_construct}!LAxis@{LAxis}}
 \doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
-{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$\+In\+Name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Type = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{\$\+In\+Data = {\ttfamily array()} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$\+In\+Name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{\$\+In\+Type = {\ttfamily \char`\"{}\char`\"{}},  }\item[{array}]{\$\+In\+Data = {\ttfamily array()} }\end{DoxyParamCaption})}
 
 Constructor that create an object of type \mbox{\hyperlink{class_l_axis}{LAxis}}
 
@@ -40,6 +40,14 @@ string & {\em \$\+In\+Type} & type of the axis \\
 array & {\em \$\+In\+Data} & array of the datas \\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \$this-\/>Name = \$InName;}
+\DoxyCodeLine{26         \$this-\/>Type = \$InType;}
+\DoxyCodeLine{27     \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Field Documentation}

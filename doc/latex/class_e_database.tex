@@ -21,9 +21,6 @@ Mettre le bon chemin d\textquotesingle{}accès à votre fichier contenant les co
 \begin{DoxyAuthor}{Author}
 \href{mailto:dominique.aigroz@kadeo.net}{\texttt{ dominique.\+aigroz@kadeo.\+net}} 
 \end{DoxyAuthor}
-\begin{DoxyRemark}{Remarks}
-
-\end{DoxyRemark}
 
 
 \doxysubsection{Member Function Documentation}
@@ -40,6 +37,23 @@ Returns DB instance or create initial connection.
 \begin{DoxyReturn}{Returns}
 \$obj\+Instance; 
 \end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         \textcolor{keywordflow}{if} (!self::\$objInstance) \{}
+\DoxyCodeLine{42             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44                 \$dsn = DB\_TYPE . \textcolor{stringliteral}{':host='} . DB\_HOST . \textcolor{stringliteral}{';port='} . DB\_PORT . \textcolor{stringliteral}{';dbname='} . DB\_NAME;}
+\DoxyCodeLine{45                 self::\$objInstance = \textcolor{keyword}{new} PDO(\$dsn, DB\_USER, DB\_PASS, array(\textcolor{stringliteral}{'charset'} => DB\_CHARSET));}
+\DoxyCodeLine{46                 self::\$objInstance-\/>setAttribute(PDO::ATTR\_ERRMODE, PDO::ERRMODE\_EXCEPTION);}
+\DoxyCodeLine{47             \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
+\DoxyCodeLine{48                 echo \textcolor{stringliteral}{"{}EDatabase Error: "{}} . \$e;}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51         \textcolor{keywordflow}{return} self::\$objInstance;}
+\DoxyCodeLine{52     \} \# end method}
+
+\end{DoxyCode}
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
