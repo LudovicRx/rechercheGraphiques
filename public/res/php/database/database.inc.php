@@ -15,7 +15,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'const.inc.php';
  * @brief	Helper class encapsulating
  * 			the PDO object
  * @author 	dominique.aigroz@kadeo.net
- * @remark	
  */
 class EDatabase
 {

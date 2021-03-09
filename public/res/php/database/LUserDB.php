@@ -1,4 +1,5 @@
 <?php
+
 /** LUserDB
  *  -------
  *  @file
@@ -7,21 +8,34 @@
  *  @author Ludovic Roux
  */
 
- /**
-  * @brief Class that makes query on DB for users
-  */
+/**
+ * @brief Class that makes query on DB for users
+ */
 class LUserDB
 {
+    /**
+     * Set the constructor as private so we can not create an instance of LUserDB
+     */
+    private function __construct()
+    {
+    }
+    /**
+     * Set the clone to private so we can't clone an LUserDB object
+     */
+    private function __clone()
+    {
+    }
+
     /**
      * Get a specific user thanks his id
      *
      * @param int $id id of the user
-     * @return array if succeed or false if failure
+     * @return LUser if succeed, else false if failure
      */
-    public static function getUser($id)
+    public static function getUserById($id)
     {
         static $ps = null;
-        $sql = "SELECT id, username FROM users WHERE id = :ID;";
+        $sql = "SELECT id, email, username, password FROM users WHERE id = :ID;";
 
         try {
             if ($ps == null) {
@@ -32,7 +46,34 @@ class LUserDB
             $ps->execute();
 
             $result = $ps->fetch(PDO::FETCH_ASSOC);
-            return new LUser(intval($result["id"]), $result["username"]);
+            return new LUser(intval($result["id"]), $result["email"], $result["username"]);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * Get a specific user thanks to the email
+     *
+     * @param string $email email of the user
+     * @return LUSer if succeed, else false
+     */
+    public static function getUserByEmail($email)
+    {
+        static $ps = null;
+        $sql = "SELECT id, email, username, password FROM users WHERE email LIKE :EMAIL;";
+
+        try {
+            if ($ps == null) {
+                $ps = EDatabase::getInstance()->prepare($sql);
+            }
+
+            $ps->bindParam(":EMAIL", $email, PDO::PARAM_INT);
+            $ps->execute();
+
+            $result = $ps->fetch(PDO::FETCH_ASSOC);
+            return new LUser(intval($result["id"]), $result["email"], $result["username"]);
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
