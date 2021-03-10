@@ -1,24 +1,36 @@
 <?php
 
-/** Login
+/** Register
  *  -------
  *  @file
  *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
- *  @brief Login page
+ *  @brief Register page
  *  @author ludovic.rx@eduge.ch
  */
 
 session_start();
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "all.inc.php");
 
-/**> Error message when a user can't connect */
-define("ERROR_MESSAGE", "The email or the pasword is wrong ;-;");
+/**> Error message when the email is already used */
+define("ERROR_MESSAGE_EMAIL", "The email is already used.");
+/**> Error message when the usernamiis already used */
+define("ERROR_MESSAGE_USERNAME", "The username is already used.");
+/**> Error message when both passwords are not the same */
+define("ERROR_MESSAGE_PASSWORD", "The passwords are not the same.");
+/**> Error message when not all the fields are set */
+define("ERROR_MESSAGE_FILLED", "You need to fill all the fields.");
 
 /**> Email that is entered by the user */
 $email = "";
 
+/**> username that is entered by the user */
+$username = "";
+
 /**> Password that is entered by the user */
 $password = "";
+
+/**> Password to verify */
+$passwordVerify = "";
 
 /**> Error that we can display */
 $errors = array();
@@ -28,10 +40,14 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
     if (filter_var($tmpEmail, FILTER_VALIDATE_EMAIL)) {
         $email = $tmpEmail;
     }
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $passwordVerify = filter_input(INPUT_POST, "passwordVerify", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-    // If email and password are valid
-    if (strlen($email) > 0 && strlen($password) > 0) {
+    // If email, username, password and password verify are valid
+    if (strlen($email) > 0 && strlen($username) > 0 && strlen($password) > 0 && strlen($passwordVerify) > 0) {
+
+        
         $user = LUserDB::getUserByEmail($email);
         if ($user) {
             if (LUserDB::verifyPassword($user->Id, $password)) {
@@ -40,8 +56,9 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
                 exit();
             }
         }
+    } else {
+        array_push($errors, ERROR_MESSAGE_FILLED);
     }
-    array_push($errors, ERROR_MESSAGE);
 }
 
 ?>
@@ -74,8 +91,12 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <label for="inputEmail" class="visually-hidden">Email address</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+            <label for="inputUsername" class="visually-hidden">Username</label>
+            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username">
             <label for="inputPassword" class="visually-hidden">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+            <label for="inputPasswordVerify" class="visually-hidden">Password Verify</label>
+            <input type="password" id="inputPasswordVerify" class="form-control" placeholder="Password Verify" required name="passwordVerify">
             <?= displayError($errors) ?>
             <div class="checkbox mb-3">
                 <label>
@@ -83,7 +104,6 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
                 </label>
             </div>
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Sign in" name="submit"></input>
-            <a href="signin.php">You do not have an account ? Create one by clicking here !</a>
             <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
         </form>
     </main>

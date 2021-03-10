@@ -8,17 +8,20 @@
  *  @author ludovic.rx@eduge.ch
  */
 
- /**
-  * Display an error 
-  *
-  * @param string $error content of the error
-  * @return string the error as HTML
-  */
-function displayError(string $error): string
+/**
+ * Display an error 
+ *
+ * @param array $error content of the error
+ * @return string the error as HTML
+ */
+function displayError(array $errors): string
 {
-    $result = '<div class="invalid-feedback d-block">';
+  $result = "";
+  foreach ($errors as $error) {
+    $result .= '<div class="invalid-feedback d-block">';
     $result .= $error;
     $result .= "</div>";
+  }
 
-    return $result;
+  return $result;
 }

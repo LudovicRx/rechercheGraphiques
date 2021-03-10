@@ -82,6 +82,16 @@ class LUserDB
     }
 
     /**
+     * Verify if an email exists
+     *
+     * @param string $email email tht we verify
+     * @return bool true if the emai exists, else false
+     */
+    public static function emailExists(string $email) {
+        return self::getUserByEmail($email);
+    }
+
+    /**
      * Insert a user in the database
      *
      * @param string $username username of the user
@@ -137,10 +147,10 @@ class LUserDB
      * Verify that the password is the same as before
      *
      * @param int $id id of the user
-     * @param string $oldPassword old password of the user
+     * @param string $password password that the user has entered
      * @return bool true if the same password, else false
      */
-    public static function verifyPassword(int $id, string $oldPassword)
+    public static function verifyPassword(int $id, string $password)
     {
         static $ps = null;
         $sql = "SELECT password FROM users WHERE id = :ID";
@@ -155,7 +165,7 @@ class LUserDB
             $result = $ps->fetchAll(PDO::FETCH_ASSOC);
             // If there is only one result
             if (count($result) === 1) {
-                return $result[0]["password"] == self::hashPassword($oldPassword);
+                return password_verify($password, $result[0]["password"]);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
