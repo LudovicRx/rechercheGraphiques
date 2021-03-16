@@ -47,14 +47,14 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
     // If email, username, password and password verify are valid
     if (strlen($email) > 0 && strlen($username) > 0 && strlen($password) > 0 && strlen($passwordVerify) > 0) {
 
-        
-        $user = LUserDB::getUserByEmail($email);
-        if ($user) {
-            if (LUserDB::verifyPassword($user->Id, $password)) {
-                $_SESSION["idUser"] = $user->Id;
-                header("Location: index.php");
-                exit();
+        if (!LUserDB::emailExists($email)) {
+            if ($password == $passwordVerify) {
+                LUserDB::insertUser($email, $username, $password);
+            } else {
+                array_push($errors, ERROR_MESSAGE_PASSWORD);
             }
+        } else {
+            array_push($errors, ERROR_MESSAGE_EMAIL);
         }
     } else {
         array_push($errors, ERROR_MESSAGE_FILLED);
@@ -90,11 +90,11 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <img class="mb-4" src="res/img/bar-chart.svg" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <label for="inputEmail" class="visually-hidden">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email" value="<?= $email ?>">
             <label for="inputUsername" class="visually-hidden">Username</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username">
+            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username"  value="<?= $username ?>">
             <label for="inputPassword" class="visually-hidden">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+            <input type="password" id="inputPassword" class="form-control m-0" placeholder="Password" required name="password">
             <label for="inputPasswordVerify" class="visually-hidden">Password Verify</label>
             <input type="password" id="inputPasswordVerify" class="form-control" placeholder="Password Verify" required name="passwordVerify">
             <?= displayError($errors) ?>

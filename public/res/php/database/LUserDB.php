@@ -69,7 +69,7 @@ class LUserDB
                 $ps = EDatabase::getInstance()->prepare($sql);
             }
 
-            $ps->bindParam(":EMAIL", $email, PDO::PARAM_INT);
+            $ps->bindParam(":EMAIL", $email, PDO::PARAM_STR);
             $ps->execute();
 
             if ($result = $ps->fetch(PDO::FETCH_ASSOC)) {
@@ -77,8 +77,8 @@ class LUserDB
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
-            return false;
         }
+        return false;
     }
 
     /**
@@ -87,29 +87,33 @@ class LUserDB
      * @param string $email email tht we verify
      * @return bool true if the emai exists, else false
      */
-    public static function emailExists(string $email) {
+    public static function emailExists(string $email)
+    {
         return self::getUserByEmail($email);
     }
 
     /**
      * Insert a user in the database
      *
+     * @param string $email email of the user
      * @param string $username username of the user
      * @param string $password password of the user
      * @return bool true if succeed, else false
      */
-    public static function insertUser(string $username, string $password)
+    public static function insertUser(string $email, string $username, string $password)
     {
         static $ps = null;
-        $sql = "INSERT INTO users (username, password) VALUES(:USERNAME, :PASSWORD)";
+        $sql = "INSERT INTO users (email, username, password) VALUES(:EMAIL, :USERNAME, :PASSWORD)";
 
         try {
             if ($ps == null) {
                 $ps = EDatabase::getInstance()->prepare($sql);
             }
 
+            $hashPassword = self::hashPassword($password);
+            $ps->bindParam(":EMAIL", $email, PDO::PARAM_STR);
             $ps->bindParam(":USERNAME", $username, PDO::PARAM_STR);
-            $ps->bindParam(":PASSWORD", self::hashPassword($password), PDO::PARAM_STR);
+            $ps->bindParam(":PASSWORD", $hashPassword, PDO::PARAM_STR);
             return $ps->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
