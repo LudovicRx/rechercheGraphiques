@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['edatabase_30',['EDatabase',['../class_e_database.html',1,'']]]
+  ['edatabase_45',['EDatabase',['../class_e_database.html',1,'']]]
 ];

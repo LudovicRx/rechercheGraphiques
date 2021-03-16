@@ -9,7 +9,7 @@
 }
 
 .graphContainer {
-    width:100vw;
+    width:98vw;
     height:50vh;
     display:flex;   
     flex-flow: row;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verifypassword_49',['verifyPassword',['../class_l_user_d_b.html#ad8cf4f1ec6d29d8f9afe0dd343c490f3',1,'LUserDB']]]
+  ['insertuser_65',['insertUser',['../class_l_user_d_b.html#a6db57b9951826c56aaad8b1b486316af',1,'LUserDB']]]
 ];

@@ -43,6 +43,8 @@ class EDatabase
                 self::$objInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 echo "EDatabase Error: " . $e;
+                error_log($e->getMessage());
+                die();
             }
         }
         return self::$objInstance;

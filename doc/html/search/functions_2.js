@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertuser_46',['insertUser',['../class_l_user_d_b.html#a71eaa5127d9e4db30df601118de8a7a1',1,'LUserDB']]]
+  ['emailexists_61',['emailExists',['../class_l_user_d_b.html#a626c9c69dd34bbbd019f66df60e85a98',1,'LUserDB']]]
 ];

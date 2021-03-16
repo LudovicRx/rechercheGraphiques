@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['index_2ephp_14',['index.php',['../index_8php.html',1,'']]],
-  ['insertuser_15',['insertUser',['../class_l_user_d_b.html#a71eaa5127d9e4db30df601118de8a7a1',1,'LUserDB']]]
+  ['getinstance_25',['getInstance',['../class_e_database.html#ac93fbec81f07e5d15f80db907e63dc10',1,'EDatabase']]],
+  ['getuserbyemail_26',['getUserByEmail',['../class_l_user_d_b.html#a9b25e7ef455bc1a537471776fcd9575a',1,'LUserDB']]],
+  ['getuserbyid_27',['getUserById',['../class_l_user_d_b.html#a75635f2b17e7d822d1538908b5cbf966',1,'LUserDB']]]
 ];

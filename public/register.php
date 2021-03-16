@@ -19,6 +19,8 @@ define("ERROR_MESSAGE_USERNAME", "The username is already used.");
 define("ERROR_MESSAGE_PASSWORD", "The passwords are not the same.");
 /**> Error message when not all the fields are set */
 define("ERROR_MESSAGE_FILLED", "You need to fill all the fields.");
+/**> Error message if ther is an error when we add in the database */
+define("ERROR_MESSAGE_DATABASE", "Your account could not be added in the database.");
 
 /**> Email that is entered by the user */
 $email = "";
@@ -36,6 +38,7 @@ $passwordVerify = "";
 $errors = array();
 
 if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
+    $userDB = new LUserDB();
     $tmpEmail = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     if (filter_var($tmpEmail, FILTER_VALIDATE_EMAIL)) {
         $email = $tmpEmail;
@@ -47,9 +50,13 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
     // If email, username, password and password verify are valid
     if (strlen($email) > 0 && strlen($username) > 0 && strlen($password) > 0 && strlen($passwordVerify) > 0) {
 
-        if (!LUserDB::emailExists($email)) {
+        if (!$userDB->emailExists($email)) {
             if ($password == $passwordVerify) {
-                LUserDB::insertUser($email, $username, $password);
+                if ($userDB->insertUser($email, $username, $password)) {
+                    header("Location: login.php");
+                } else {
+                    array_push($errors, ERROR_MESSAGE_DATABASE);
+                }
             } else {
                 array_push($errors, ERROR_MESSAGE_PASSWORD);
             }
@@ -92,17 +99,17 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <label for="inputEmail" class="visually-hidden">Email address</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email" value="<?= $email ?>">
             <label for="inputUsername" class="visually-hidden">Username</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username"  value="<?= $username ?>">
+            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username" value="<?= $username ?>">
             <label for="inputPassword" class="visually-hidden">Password</label>
             <input type="password" id="inputPassword" class="form-control m-0" placeholder="Password" required name="password">
             <label for="inputPasswordVerify" class="visually-hidden">Password Verify</label>
             <input type="password" id="inputPasswordVerify" class="form-control" placeholder="Password Verify" required name="passwordVerify">
             <?= displayError($errors) ?>
-            <div class="checkbox mb-3">
+            <!-- <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
-            </div>
+            </div> -->
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Sign in" name="submit"></input>
             <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
         </form>

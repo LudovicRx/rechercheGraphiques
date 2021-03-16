@@ -8,11 +8,13 @@
  *  @author ludovic.rx@eduge.ch
  */
 
-session_start();
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "all.inc.php");
+session_start();
 
+if(isset($_SESSION["user"])) {
+    
+}
 
-$user = new LUser(3, "salut@salut.cm", "Oui monsieur");
 ?>
 <!DOCTYPE html>
 <html lang="fr">

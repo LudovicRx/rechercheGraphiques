@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Recherche Graphique: EDatabase Class Reference</title>
+<title>RechercheGraphique: EDatabase Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Recherche Graphique
+   <div id="projectname">RechercheGraphique
    </div>
-   <div id="projectbrief">Recherche sur les graphiques pour TPI</div>
   </td>
  </tr>
  </tbody>
@@ -80,7 +79,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Helper class encapsulating the PDO object. </p>
-<dl class="section remark"><dt>Remarks</dt><dd>Mettre le bon chemin d'accès à votre fichier contenant les constantes </dd></dl>
 <dl class="section author"><dt>Author</dt><dd><a href="#" onclick="location.href='mai'+'lto:'+'dom'+'in'+'iqu'+'e.'+'aig'+'ro'+'z@k'+'ad'+'eo.'+'ne'+'t'; return false;">domin<span style="display: none;">.nosp@m.</span>ique<span style="display: none;">.nosp@m.</span>.aigr<span style="display: none;">.nosp@m.</span>oz@k<span style="display: none;">.nosp@m.</span>adeo.<span style="display: none;">.nosp@m.</span>net</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac93fbec81f07e5d15f80db907e63dc10"></a>
@@ -108,45 +106,16 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Returns DB instance or create initial connection. </p>
 <dl class="section return"><dt>Returns</dt><dd>$objInstance; </dd></dl>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> (!self::$objInstance) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                $dsn = DB_TYPE . <span class="stringliteral">&#39;:host=&#39;</span> . DB_HOST . <span class="stringliteral">&#39;;port=&#39;</span> . DB_PORT . <span class="stringliteral">&#39;;dbname=&#39;</span> . DB_NAME;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                self::$objInstance = <span class="keyword">new</span> PDO($dsn, DB_USER, DB_PASS, array(<span class="stringliteral">&#39;charset&#39;</span> =&gt; DB_CHARSET));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                self::$objInstance-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            } <span class="keywordflow">catch</span> (PDOException $e) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                echo <span class="stringliteral">&quot;EDatabase Error: &quot;</span> . $e;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> self::$objInstance;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    } # end method</div>
-</div><!-- fragment --><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="class_e_database_ac93fbec81f07e5d15f80db907e63dc10_icgraph.png" border="0" usemap="#aclass_e_database_ac93fbec81f07e5d15f80db907e63dc10_icgraph" alt=""/></div>
-<map name="aclass_e_database_ac93fbec81f07e5d15f80db907e63dc10_icgraph" id="aclass_e_database_ac93fbec81f07e5d15f80db907e63dc10_icgraph">
-<area shape="rect" title="Returns DB instance or create initial connection." alt="" coords="228,132,317,159"/>
-<area shape="rect" href="class_l_user_d_b.html#a118a433fa35048ae2e7b2112fb802006" title=" " alt="" coords="7,5,179,32"/>
-<area shape="rect" href="class_l_user_d_b.html#ae85261fb43d41c517f3c9bf75ba5e30b" title=" " alt="" coords="18,56,167,83"/>
-<area shape="rect" href="class_l_user_d_b.html#a71eaa5127d9e4db30df601118de8a7a1" title=" " alt="" coords="24,107,161,133"/>
-<area shape="rect" href="class_l_user_d_b.html#a8435404bf6e415edf49e245bb372a2af" title=" " alt="" coords="5,157,180,184"/>
-<area shape="rect" href="class_l_user_d_b.html#ad44142ec41901abe3bed1b7cfaef0521" title=" " alt="" coords="21,208,165,235"/>
-<area shape="rect" href="class_l_user_d_b.html#ad8cf4f1ec6d29d8f9afe0dd343c490f3" title=" " alt="" coords="11,259,175,285"/>
-</map>
-</div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>public/res/php/database/<a class="el" href="database_8inc_8php.html">database.inc.php</a></li>
+<li>//wsl$/Debian/var/www/html/menu/rechercheGraphiques/public/res/php/database/<a class="el" href="database_8inc_8php.html">database.inc.php</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 9 2021 15:54:13 for Recherche Graphique by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

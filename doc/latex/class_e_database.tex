@@ -15,9 +15,6 @@ static \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{get\
 \doxysubsection{Detailed Description}
 Helper class encapsulating the PDO object. 
 
-\begin{DoxyRemark}{Remarks}
-Mettre le bon chemin d\textquotesingle{}accès à votre fichier contenant les constantes 
-\end{DoxyRemark}
 \begin{DoxyAuthor}{Author}
 \href{mailto:dominique.aigroz@kadeo.net}{\texttt{ dominique.\+aigroz@kadeo.\+net}} 
 \end{DoxyAuthor}
@@ -38,31 +35,7 @@ Returns DB instance or create initial connection.
 \$obj\+Instance; 
 \end{DoxyReturn}
 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{40     \{}
-\DoxyCodeLine{41         \textcolor{keywordflow}{if} (!self::\$objInstance) \{}
-\DoxyCodeLine{42             \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44                 \$dsn = DB\_TYPE . \textcolor{stringliteral}{':host='} . DB\_HOST . \textcolor{stringliteral}{';port='} . DB\_PORT . \textcolor{stringliteral}{';dbname='} . DB\_NAME;}
-\DoxyCodeLine{45                 self::\$objInstance = \textcolor{keyword}{new} PDO(\$dsn, DB\_USER, DB\_PASS, array(\textcolor{stringliteral}{'charset'} => DB\_CHARSET));}
-\DoxyCodeLine{46                 self::\$objInstance-\/>setAttribute(PDO::ATTR\_ERRMODE, PDO::ERRMODE\_EXCEPTION);}
-\DoxyCodeLine{47             \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{48                 echo \textcolor{stringliteral}{"{}EDatabase Error: "{}} . \$e;}
-\DoxyCodeLine{49             \}}
-\DoxyCodeLine{50         \}}
-\DoxyCodeLine{51         \textcolor{keywordflow}{return} self::\$objInstance;}
-\DoxyCodeLine{52     \} \# end method}
-
-\end{DoxyCode}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=314pt]{class_e_database_ac93fbec81f07e5d15f80db907e63dc10_icgraph}
-\end{center}
-\end{figure}
-
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-public/res/php/database/\mbox{\hyperlink{database_8inc_8php}{database.\+inc.\+php}}\end{DoxyCompactItemize}
+//wsl\$/\+Debian/var/www/html/menu/recherche\+Graphiques/public/res/php/database/\mbox{\hyperlink{database_8inc_8php}{database.\+inc.\+php}}\end{DoxyCompactItemize}

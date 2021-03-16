@@ -1,5 +1,5 @@
-\hypertarget{login_8php}{}\doxysection{public/login.php File Reference}
-\label{login_8php}\index{public/login.php@{public/login.php}}
+\hypertarget{login_8php}{}\doxysection{//wsl\$/\+Debian/var/www/html/menu/recherche\+Graphiques/public/login.php File Reference}
+\label{login_8php}\index{//wsl\$/Debian/var/www/html/menu/rechercheGraphiques/public/login.php@{//wsl\$/Debian/var/www/html/menu/rechercheGraphiques/public/login.php}}
 
 
 Login page.  
@@ -8,9 +8,13 @@ Login page.
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+const \mbox{\hyperlink{login_8php_a7ee5ba193850ba436589d042e5b1d782}{ERROR\+\_\+\+MESSAGE}} \char`\"{}The email or the pasword is wrong ;-\/;\char`\"{}
+\item 
 \mbox{\hyperlink{login_8php_ad634f418b20382e2802f80532d76d3cd}{\$email}} = \char`\"{}\char`\"{}
 \item 
 \mbox{\hyperlink{login_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\$password}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{login_8php_ab24faf4aa647cdcee494fc48524ad4ff}{\$errors}} = array()
 \end{DoxyCompactItemize}
 
 
@@ -22,7 +26,7 @@ Login page.
 Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions. 
 \end{DoxyCopyright}
 \begin{DoxyAuthor}{Author}
-ludovic.rx@eduge.ch 
+\href{mailto:ludovic.rx@eduge.ch}{\texttt{ ludovic.\+rx@eduge.\+ch}} 
 \end{DoxyAuthor}
 
 
@@ -35,6 +39,14 @@ ludovic.rx@eduge.ch
 
 \begin{quote}
 Email that is entered by the user \end{quote}
+\mbox{\Hypertarget{login_8php_ab24faf4aa647cdcee494fc48524ad4ff}\label{login_8php_ab24faf4aa647cdcee494fc48524ad4ff}} 
+\index{login.php@{login.php}!\$errors@{\$errors}}
+\index{\$errors@{\$errors}!login.php@{login.php}}
+\doxysubsubsection{\texorpdfstring{\$errors}{$errors}}
+{\footnotesize\ttfamily \$errors = array()}
+
+\begin{quote}
+Error that we can display \end{quote}
 \mbox{\Hypertarget{login_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}\label{login_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}} 
 \index{login.php@{login.php}!\$password@{\$password}}
 \index{\$password@{\$password}!login.php@{login.php}}
@@ -43,3 +55,11 @@ Email that is entered by the user \end{quote}
 
 \begin{quote}
 Password that is entered by the user \end{quote}
+\mbox{\Hypertarget{login_8php_a7ee5ba193850ba436589d042e5b1d782}\label{login_8php_a7ee5ba193850ba436589d042e5b1d782}} 
+\index{login.php@{login.php}!ERROR\_MESSAGE@{ERROR\_MESSAGE}}
+\index{ERROR\_MESSAGE@{ERROR\_MESSAGE}!login.php@{login.php}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE}{ERROR\_MESSAGE}}
+{\footnotesize\ttfamily const ERROR\+\_\+\+MESSAGE \char`\"{}The email or the pasword is wrong ;-\/;\char`\"{}}
+
+\begin{quote}
+Error message when a user can\textquotesingle{}t connect \end{quote}

@@ -5,32 +5,69 @@
 Class that makes query on DB for users.  
 
 
-\doxysubsection*{Static Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_l_user_d_b_ae85261fb43d41c517f3c9bf75ba5e30b}{get\+User\+By\+Id}} (int \$id)
+\mbox{\hyperlink{class_l_user_d_b_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
 \item 
-static \mbox{\hyperlink{class_l_user_d_b_a118a433fa35048ae2e7b2112fb802006}{get\+User\+By\+Email}} (string \$email)
+\mbox{\hyperlink{class_l_user_d_b_a75635f2b17e7d822d1538908b5cbf966}{get\+User\+By\+Id}} (int \$id)
 \item 
-static \mbox{\hyperlink{class_l_user_d_b_a71eaa5127d9e4db30df601118de8a7a1}{insert\+User}} (string \$username, string \$password)
+\mbox{\hyperlink{class_l_user_d_b_a9b25e7ef455bc1a537471776fcd9575a}{get\+User\+By\+Email}} (string \$email)
 \item 
-static \mbox{\hyperlink{class_l_user_d_b_a8435404bf6e415edf49e245bb372a2af}{update\+Password}} (int \$id, string \$new\+Password)
+\mbox{\hyperlink{class_l_user_d_b_a626c9c69dd34bbbd019f66df60e85a98}{email\+Exists}} (string \$email)
 \item 
-static \mbox{\hyperlink{class_l_user_d_b_ad8cf4f1ec6d29d8f9afe0dd343c490f3}{verify\+Password}} (int \$id, string \$old\+Password)
+\mbox{\hyperlink{class_l_user_d_b_a6db57b9951826c56aaad8b1b486316af}{insert\+User}} (string \$email, string \$username, string \$password)
 \item 
-static \mbox{\hyperlink{class_l_user_d_b_ad44142ec41901abe3bed1b7cfaef0521}{update\+User}} (int \$id, string \$new\+Username)
+\mbox{\hyperlink{class_l_user_d_b_a7099d2832dcfc83961d43a6042d634d6}{update\+Password}} (int \$id, string \$new\+Password)
+\item 
+\mbox{\hyperlink{class_l_user_d_b_adf553b8ea131cd090e53fb7649e1cd2b}{verify\+Password}} (int \$id, string \$password)
+\item 
+\mbox{\hyperlink{class_l_user_d_b_a9c0f0f12c12247b5242e2a11cb2b4c9c}{update\+User}} (int \$id, string \$new\+Username)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that makes query on DB for users. 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_user_d_b_a095c5d389db211932136b53f25f39685}\label{class_l_user_d_b_a095c5d389db211932136b53f25f39685}} 
+\index{LUserDB@{LUserDB}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create an instance of \mbox{\hyperlink{class_l_user_d_b}{LUser\+DB}} that can make queries on the database 
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_l_user_d_b_a118a433fa35048ae2e7b2112fb802006}\label{class_l_user_d_b_a118a433fa35048ae2e7b2112fb802006}} 
+\mbox{\Hypertarget{class_l_user_d_b_a626c9c69dd34bbbd019f66df60e85a98}\label{class_l_user_d_b_a626c9c69dd34bbbd019f66df60e85a98}} 
+\index{LUserDB@{LUserDB}!emailExists@{emailExists}}
+\index{emailExists@{emailExists}!LUserDB@{LUserDB}}
+\doxysubsubsection{\texorpdfstring{emailExists()}{emailExists()}}
+{\footnotesize\ttfamily email\+Exists (\begin{DoxyParamCaption}\item[{string}]{\$email }\end{DoxyParamCaption})}
+
+Verify if an email exists
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$email} & email tht we verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the emai exists, else false 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{class_l_user_d_b_a626c9c69dd34bbbd019f66df60e85a98_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_l_user_d_b_a9b25e7ef455bc1a537471776fcd9575a}\label{class_l_user_d_b_a9b25e7ef455bc1a537471776fcd9575a}} 
 \index{LUserDB@{LUserDB}!getUserByEmail@{getUserByEmail}}
 \index{getUserByEmail@{getUserByEmail}!LUserDB@{LUserDB}}
 \doxysubsubsection{\texorpdfstring{getUserByEmail()}{getUserByEmail()}}
-{\footnotesize\ttfamily static get\+User\+By\+Email (\begin{DoxyParamCaption}\item[{string}]{\$email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily get\+User\+By\+Email (\begin{DoxyParamCaption}\item[{string}]{\$email }\end{DoxyParamCaption})}
 
 Get a specific user thanks to the email
 
@@ -42,41 +79,19 @@ string & {\em \$email} & email of the user \\
 \begin{DoxyReturn}{Returns}
 LUSer if succeed, else false 
 \end{DoxyReturn}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{63     \{}
-\DoxyCodeLine{64         \textcolor{keyword}{static} \$ps = \textcolor{keyword}{null};}
-\DoxyCodeLine{65         \$sql = \textcolor{stringliteral}{"{}SELECT id, email, username, password FROM users WHERE email LIKE :EMAIL;"{}};}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67         \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{68             \textcolor{keywordflow}{if} (\$ps == \textcolor{keyword}{null}) \{}
-\DoxyCodeLine{69                 \$ps = \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{EDatabase::getInstance}}()-\/>prepare(\$sql);}
-\DoxyCodeLine{70             \}}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:EMAIL"{}}, \mbox{\hyperlink{login_8php_ad634f418b20382e2802f80532d76d3cd}{\$email}}, PDO::PARAM\_INT);}
-\DoxyCodeLine{73             \$ps-\/>execute();}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75             \$result = \$ps-\/>fetch(PDO::FETCH\_ASSOC);}
-\DoxyCodeLine{76             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_l_user}{LUser}}(intval(\$result[\textcolor{stringliteral}{"{}id"{}}]), \$result[\textcolor{stringliteral}{"{}email"{}}], \$result[\textcolor{stringliteral}{"{}username"{}}]);}
-\DoxyCodeLine{77         \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{78             echo \$e-\/>getMessage();}
-\DoxyCodeLine{79             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{80         \}}
-\DoxyCodeLine{81     \}}
-
-\end{DoxyCode}
-Here is the call graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=321pt]{class_l_user_d_b_a118a433fa35048ae2e7b2112fb802006_cgraph}
+\includegraphics[width=271pt]{class_l_user_d_b_a9b25e7ef455bc1a537471776fcd9575a_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{class_l_user_d_b_ae85261fb43d41c517f3c9bf75ba5e30b}\label{class_l_user_d_b_ae85261fb43d41c517f3c9bf75ba5e30b}} 
+\mbox{\Hypertarget{class_l_user_d_b_a75635f2b17e7d822d1538908b5cbf966}\label{class_l_user_d_b_a75635f2b17e7d822d1538908b5cbf966}} 
 \index{LUserDB@{LUserDB}!getUserById@{getUserById}}
 \index{getUserById@{getUserById}!LUserDB@{LUserDB}}
 \doxysubsubsection{\texorpdfstring{getUserById()}{getUserById()}}
-{\footnotesize\ttfamily static get\+User\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily get\+User\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{\$id }\end{DoxyParamCaption})}
 
 Get a specific user thanks his id
 
@@ -88,46 +103,18 @@ int & {\em \$id} & id of the user \\
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_l_user}{LUser}} if succeed, else false if failure 
 \end{DoxyReturn}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{36     \{}
-\DoxyCodeLine{37         \textcolor{keyword}{static} \$ps = \textcolor{keyword}{null};}
-\DoxyCodeLine{38         \$sql = \textcolor{stringliteral}{"{}SELECT id, email, username, password FROM users WHERE id = :ID;"{}};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40         \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{41             \textcolor{keywordflow}{if} (\$ps == \textcolor{keyword}{null}) \{}
-\DoxyCodeLine{42                 \$ps = \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{EDatabase::getInstance}}()-\/>prepare(\$sql);}
-\DoxyCodeLine{43             \}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:ID"{}}, \$id, PDO::PARAM\_INT);}
-\DoxyCodeLine{46             \$ps-\/>execute();}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48             \$result = \$ps-\/>fetch(PDO::FETCH\_ASSOC);}
-\DoxyCodeLine{49             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_l_user}{LUser}}(intval(\$result[\textcolor{stringliteral}{"{}id"{}}]), \$result[\textcolor{stringliteral}{"{}email"{}}], \$result[\textcolor{stringliteral}{"{}username"{}}]);}
-\DoxyCodeLine{50         \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{51             echo \$e-\/>getMessage();}
-\DoxyCodeLine{52             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{53         \}}
-\DoxyCodeLine{54     \}}
-
-\end{DoxyCode}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=304pt]{class_l_user_d_b_ae85261fb43d41c517f3c9bf75ba5e30b_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_l_user_d_b_a71eaa5127d9e4db30df601118de8a7a1}\label{class_l_user_d_b_a71eaa5127d9e4db30df601118de8a7a1}} 
+\mbox{\Hypertarget{class_l_user_d_b_a6db57b9951826c56aaad8b1b486316af}\label{class_l_user_d_b_a6db57b9951826c56aaad8b1b486316af}} 
 \index{LUserDB@{LUserDB}!insertUser@{insertUser}}
 \index{insertUser@{insertUser}!LUserDB@{LUserDB}}
 \doxysubsubsection{\texorpdfstring{insertUser()}{insertUser()}}
-{\footnotesize\ttfamily static insert\+User (\begin{DoxyParamCaption}\item[{string}]{\$username,  }\item[{string}]{\$password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily insert\+User (\begin{DoxyParamCaption}\item[{string}]{\$email,  }\item[{string}]{\$username,  }\item[{string}]{\$password }\end{DoxyParamCaption})}
 
 Insert a user in the database
 
 
 \begin{DoxyParams}[1]{Parameters}
+string & {\em \$email} & email of the user \\
+\hline
 string & {\em \$username} & username of the user \\
 \hline
 string & {\em \$password} & password of the user \\
@@ -136,39 +123,11 @@ string & {\em \$password} & password of the user \\
 \begin{DoxyReturn}{Returns}
 bool true if succeed, else false 
 \end{DoxyReturn}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{91     \{}
-\DoxyCodeLine{92         \textcolor{keyword}{static} \$ps = \textcolor{keyword}{null};}
-\DoxyCodeLine{93         \$sql = \textcolor{stringliteral}{"{}INSERT INTO users (username, password) VALUES(:USERNAME, :PASSWORD)"{}};}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95         \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{96             \textcolor{keywordflow}{if} (\$ps == \textcolor{keyword}{null}) \{}
-\DoxyCodeLine{97                 \$ps = \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{EDatabase::getInstance}}()-\/>prepare(\$sql);}
-\DoxyCodeLine{98             \}}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:USERNAME"{}}, \$username, PDO::PARAM\_STR);}
-\DoxyCodeLine{101             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:PASSWORD"{}}, self::hashPassword(\mbox{\hyperlink{login_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\$password}}), PDO::PARAM\_STR);}
-\DoxyCodeLine{102             \textcolor{keywordflow}{return} \$ps-\/>execute();}
-\DoxyCodeLine{103         \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{104             echo \$e-\/>getMessage();}
-\DoxyCodeLine{105             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{106         \}}
-\DoxyCodeLine{107     \}}
-
-\end{DoxyCode}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=295pt]{class_l_user_d_b_a71eaa5127d9e4db30df601118de8a7a1_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_l_user_d_b_a8435404bf6e415edf49e245bb372a2af}\label{class_l_user_d_b_a8435404bf6e415edf49e245bb372a2af}} 
+\mbox{\Hypertarget{class_l_user_d_b_a7099d2832dcfc83961d43a6042d634d6}\label{class_l_user_d_b_a7099d2832dcfc83961d43a6042d634d6}} 
 \index{LUserDB@{LUserDB}!updatePassword@{updatePassword}}
 \index{updatePassword@{updatePassword}!LUserDB@{LUserDB}}
 \doxysubsubsection{\texorpdfstring{updatePassword()}{updatePassword()}}
-{\footnotesize\ttfamily static update\+Password (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{string}]{\$new\+Password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily update\+Password (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{string}]{\$new\+Password }\end{DoxyParamCaption})}
 
 Update the password from a user
 
@@ -182,39 +141,11 @@ string & {\em \$new\+Password} & new password for the user \\
 \begin{DoxyReturn}{Returns}
 bool true if succeed, else false 
 \end{DoxyReturn}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{117     \{}
-\DoxyCodeLine{118         \textcolor{keyword}{static} \$ps = \textcolor{keyword}{null};}
-\DoxyCodeLine{119         \$sql = \textcolor{stringliteral}{"{}UPDATE users SET password = :PASSWORD WHERE id LIKE :ID"{}};}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{121         \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{122             \textcolor{keywordflow}{if} (\$ps == \textcolor{keyword}{null}) \{}
-\DoxyCodeLine{123                 \$ps = \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{EDatabase::getInstance}}()-\/>prepare(\$sql);}
-\DoxyCodeLine{124             \}}
-\DoxyCodeLine{125 }
-\DoxyCodeLine{126             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:ID"{}}, \$id, PDO::PARAM\_INT);}
-\DoxyCodeLine{127             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:PASSWORD"{}}, self::hashPassword(\$newPassword), PDO::PARAM\_STR);}
-\DoxyCodeLine{128             \textcolor{keywordflow}{return} \$ps-\/>execute();}
-\DoxyCodeLine{129         \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{130             echo \$e-\/>getMessage();}
-\DoxyCodeLine{131             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{132         \}}
-\DoxyCodeLine{133     \}}
-
-\end{DoxyCode}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=323pt]{class_l_user_d_b_a8435404bf6e415edf49e245bb372a2af_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_l_user_d_b_ad44142ec41901abe3bed1b7cfaef0521}\label{class_l_user_d_b_ad44142ec41901abe3bed1b7cfaef0521}} 
+\mbox{\Hypertarget{class_l_user_d_b_a9c0f0f12c12247b5242e2a11cb2b4c9c}\label{class_l_user_d_b_a9c0f0f12c12247b5242e2a11cb2b4c9c}} 
 \index{LUserDB@{LUserDB}!updateUser@{updateUser}}
 \index{updateUser@{updateUser}!LUserDB@{LUserDB}}
 \doxysubsubsection{\texorpdfstring{updateUser()}{updateUser()}}
-{\footnotesize\ttfamily static update\+User (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{string}]{\$new\+Username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily update\+User (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{string}]{\$new\+Username }\end{DoxyParamCaption})}
 
 Update the user
 
@@ -228,39 +159,11 @@ string & {\em \$new\+Username} & new username for the user \\
 \begin{DoxyReturn}{Returns}
 bool true if succeed, else false 
 \end{DoxyReturn}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{184     \{}
-\DoxyCodeLine{185         \textcolor{keyword}{static} \$ps = \textcolor{keyword}{null};}
-\DoxyCodeLine{186         \$sql = \textcolor{stringliteral}{"{}UPDATE users SET username = :USERNAME WHERE id LIKE :ID"{}};}
-\DoxyCodeLine{187 }
-\DoxyCodeLine{188         \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{189             \textcolor{keywordflow}{if} (\$ps == \textcolor{keyword}{null}) \{}
-\DoxyCodeLine{190                 \$ps = \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{EDatabase::getInstance}}()-\/>prepare(\$sql);}
-\DoxyCodeLine{191             \}}
-\DoxyCodeLine{192 }
-\DoxyCodeLine{193             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:ID"{}}, \$id, PDO::PARAM\_INT);}
-\DoxyCodeLine{194             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:USERNAME"{}}, \$newUsername, PDO::PARAM\_STR);}
-\DoxyCodeLine{195             \textcolor{keywordflow}{return} \$ps-\/>execute();}
-\DoxyCodeLine{196         \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{197             echo \$e-\/>getMessage();}
-\DoxyCodeLine{198             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{199         \}}
-\DoxyCodeLine{200     \}}
-
-\end{DoxyCode}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=300pt]{class_l_user_d_b_ad44142ec41901abe3bed1b7cfaef0521_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_l_user_d_b_ad8cf4f1ec6d29d8f9afe0dd343c490f3}\label{class_l_user_d_b_ad8cf4f1ec6d29d8f9afe0dd343c490f3}} 
+\mbox{\Hypertarget{class_l_user_d_b_adf553b8ea131cd090e53fb7649e1cd2b}\label{class_l_user_d_b_adf553b8ea131cd090e53fb7649e1cd2b}} 
 \index{LUserDB@{LUserDB}!verifyPassword@{verifyPassword}}
 \index{verifyPassword@{verifyPassword}!LUserDB@{LUserDB}}
 \doxysubsubsection{\texorpdfstring{verifyPassword()}{verifyPassword()}}
-{\footnotesize\ttfamily static verify\+Password (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{string}]{\$old\+Password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily verify\+Password (\begin{DoxyParamCaption}\item[{int}]{\$id,  }\item[{string}]{\$password }\end{DoxyParamCaption})}
 
 Verify that the password is the same as before
 
@@ -268,46 +171,14 @@ Verify that the password is the same as before
 \begin{DoxyParams}[1]{Parameters}
 int & {\em \$id} & id of the user \\
 \hline
-string & {\em \$old\+Password} & old password of the user \\
+string & {\em \$password} & password that the user has entered \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 bool true if the same password, else false 
 \end{DoxyReturn}
 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{143     \{}
-\DoxyCodeLine{144         \textcolor{keyword}{static} \$ps = \textcolor{keyword}{null};}
-\DoxyCodeLine{145         \$sql = \textcolor{stringliteral}{"{}SELECT password FROM users WHERE id = :ID"{}};}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147         \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{148             \textcolor{keywordflow}{if} (\$ps == \textcolor{keyword}{null}) \{}
-\DoxyCodeLine{149                 \$ps = \mbox{\hyperlink{class_e_database_ac93fbec81f07e5d15f80db907e63dc10}{EDatabase::getInstance}}()-\/>prepare(\$sql);}
-\DoxyCodeLine{150             \}}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152             \$ps-\/>bindParam(\textcolor{stringliteral}{"{}:ID"{}}, \$id, PDO::PARAM\_INT);}
-\DoxyCodeLine{153             \$ps-\/>execute();}
-\DoxyCodeLine{154             \$result = \$ps-\/>fetchAll(PDO::FETCH\_ASSOC);}
-\DoxyCodeLine{155             \textcolor{comment}{// If there is only one result}}
-\DoxyCodeLine{156             \textcolor{keywordflow}{if} (count(\$result) === 1) \{}
-\DoxyCodeLine{157                 \textcolor{keywordflow}{return} \$result[0][\textcolor{stringliteral}{"{}password"{}}] == self::hashPassword(\$oldPassword);}
-\DoxyCodeLine{158             \}}
-\DoxyCodeLine{159         \} \textcolor{keywordflow}{catch} (PDOException \$e) \{}
-\DoxyCodeLine{160             echo \$e-\/>getMessage();}
-\DoxyCodeLine{161         \}}
-\DoxyCodeLine{162         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{163     \}}
-
-\end{DoxyCode}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=315pt]{class_l_user_d_b_ad8cf4f1ec6d29d8f9afe0dd343c490f3_cgraph}
-\end{center}
-\end{figure}
-
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-public/res/php/database/\mbox{\hyperlink{_l_user_d_b_8php}{LUser\+DB.\+php}}\end{DoxyCompactItemize}
+//wsl\$/\+Debian/var/www/html/menu/recherche\+Graphiques/public/res/php/database/\mbox{\hyperlink{_l_user_d_b_8php}{LUser\+DB.\+php}}\end{DoxyCompactItemize}

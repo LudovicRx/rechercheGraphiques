@@ -1,0 +1,125 @@
+\hypertarget{register_8php}{}\doxysection{//wsl\$/\+Debian/var/www/html/menu/recherche\+Graphiques/public/register.php File Reference}
+\label{register_8php}\index{//wsl\$/Debian/var/www/html/menu/rechercheGraphiques/public/register.php@{//wsl\$/Debian/var/www/html/menu/rechercheGraphiques/public/register.php}}
+
+
+Register page.  
+
+
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{register_8php_af840df128e9eeb357fe65c0ed93e7ca5}{ERROR\+\_\+\+MESSAGE\+\_\+\+EMAIL}} \char`\"{}The email is already used.\char`\"{}
+\item 
+const \mbox{\hyperlink{register_8php_ad36b49af8843899c6cddce344570b2ec}{ERROR\+\_\+\+MESSAGE\+\_\+\+USERNAME}} \char`\"{}The username is already used.\char`\"{}
+\item 
+const \mbox{\hyperlink{register_8php_a7784840c948556fc40745c43174a01be}{ERROR\+\_\+\+MESSAGE\+\_\+\+PASSWORD}} \char`\"{}The passwords are not the same.\char`\"{}
+\item 
+const \mbox{\hyperlink{register_8php_a875a9cf59a93e0e98a1298331115d54e}{ERROR\+\_\+\+MESSAGE\+\_\+\+FILLED}} \char`\"{}You need to fill all the fields.\char`\"{}
+\item 
+const \mbox{\hyperlink{register_8php_a4679629fb035b865ebc1bae7d49d7305}{ERROR\+\_\+\+MESSAGE\+\_\+\+DATABASE}} \char`\"{}Your account could not be added in the database.\char`\"{}
+\item 
+\mbox{\hyperlink{register_8php_ad634f418b20382e2802f80532d76d3cd}{\$email}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{register_8php_a0eb82aa5f81cf845de4b36cd653c42cf}{\$username}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{register_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}{\$password}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{register_8php_ad00821730d474b764793c5f77449ac1c}{\$password\+Verify}} = \char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{register_8php_ab24faf4aa647cdcee494fc48524ad4ff}{\$errors}} = array()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Register page. 
+
+\hypertarget{register_8php_autotoc_md2}{}\doxysubsubsection{Register}\label{register_8php_autotoc_md2}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions. 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+\href{mailto:ludovic.rx@eduge.ch}{\texttt{ ludovic.\+rx@eduge.\+ch}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{register_8php_ad634f418b20382e2802f80532d76d3cd}\label{register_8php_ad634f418b20382e2802f80532d76d3cd}} 
+\index{register.php@{register.php}!\$email@{\$email}}
+\index{\$email@{\$email}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{\$email}{$email}}
+{\footnotesize\ttfamily \$email = \char`\"{}\char`\"{}}
+
+\begin{quote}
+Email that is entered by the user \end{quote}
+\mbox{\Hypertarget{register_8php_ab24faf4aa647cdcee494fc48524ad4ff}\label{register_8php_ab24faf4aa647cdcee494fc48524ad4ff}} 
+\index{register.php@{register.php}!\$errors@{\$errors}}
+\index{\$errors@{\$errors}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{\$errors}{$errors}}
+{\footnotesize\ttfamily \$errors = array()}
+
+\begin{quote}
+Error that we can display \end{quote}
+\mbox{\Hypertarget{register_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}\label{register_8php_a607686ef9f99ea7c42f4f3dd3dbb2b0d}} 
+\index{register.php@{register.php}!\$password@{\$password}}
+\index{\$password@{\$password}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{\$password}{$password}}
+{\footnotesize\ttfamily \$password = \char`\"{}\char`\"{}}
+
+\begin{quote}
+Password that is entered by the user \end{quote}
+\mbox{\Hypertarget{register_8php_ad00821730d474b764793c5f77449ac1c}\label{register_8php_ad00821730d474b764793c5f77449ac1c}} 
+\index{register.php@{register.php}!\$passwordVerify@{\$passwordVerify}}
+\index{\$passwordVerify@{\$passwordVerify}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{\$passwordVerify}{$passwordVerify}}
+{\footnotesize\ttfamily \$password\+Verify = \char`\"{}\char`\"{}}
+
+\begin{quote}
+Password to verify \end{quote}
+\mbox{\Hypertarget{register_8php_a0eb82aa5f81cf845de4b36cd653c42cf}\label{register_8php_a0eb82aa5f81cf845de4b36cd653c42cf}} 
+\index{register.php@{register.php}!\$username@{\$username}}
+\index{\$username@{\$username}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{\$username}{$username}}
+{\footnotesize\ttfamily \$username = \char`\"{}\char`\"{}}
+
+\begin{quote}
+username that is entered by the user \end{quote}
+\mbox{\Hypertarget{register_8php_a4679629fb035b865ebc1bae7d49d7305}\label{register_8php_a4679629fb035b865ebc1bae7d49d7305}} 
+\index{register.php@{register.php}!ERROR\_MESSAGE\_DATABASE@{ERROR\_MESSAGE\_DATABASE}}
+\index{ERROR\_MESSAGE\_DATABASE@{ERROR\_MESSAGE\_DATABASE}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE\_DATABASE}{ERROR\_MESSAGE\_DATABASE}}
+{\footnotesize\ttfamily const ERROR\+\_\+\+MESSAGE\+\_\+\+DATABASE \char`\"{}Your account could not be added in the database.\char`\"{}}
+
+\begin{quote}
+Error message if ther is an error when we add in the database \end{quote}
+\mbox{\Hypertarget{register_8php_af840df128e9eeb357fe65c0ed93e7ca5}\label{register_8php_af840df128e9eeb357fe65c0ed93e7ca5}} 
+\index{register.php@{register.php}!ERROR\_MESSAGE\_EMAIL@{ERROR\_MESSAGE\_EMAIL}}
+\index{ERROR\_MESSAGE\_EMAIL@{ERROR\_MESSAGE\_EMAIL}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE\_EMAIL}{ERROR\_MESSAGE\_EMAIL}}
+{\footnotesize\ttfamily const ERROR\+\_\+\+MESSAGE\+\_\+\+EMAIL \char`\"{}The email is already used.\char`\"{}}
+
+\begin{quote}
+Error message when the email is already used \end{quote}
+\mbox{\Hypertarget{register_8php_a875a9cf59a93e0e98a1298331115d54e}\label{register_8php_a875a9cf59a93e0e98a1298331115d54e}} 
+\index{register.php@{register.php}!ERROR\_MESSAGE\_FILLED@{ERROR\_MESSAGE\_FILLED}}
+\index{ERROR\_MESSAGE\_FILLED@{ERROR\_MESSAGE\_FILLED}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE\_FILLED}{ERROR\_MESSAGE\_FILLED}}
+{\footnotesize\ttfamily const ERROR\+\_\+\+MESSAGE\+\_\+\+FILLED \char`\"{}You need to fill all the fields.\char`\"{}}
+
+\begin{quote}
+Error message when not all the fields are set \end{quote}
+\mbox{\Hypertarget{register_8php_a7784840c948556fc40745c43174a01be}\label{register_8php_a7784840c948556fc40745c43174a01be}} 
+\index{register.php@{register.php}!ERROR\_MESSAGE\_PASSWORD@{ERROR\_MESSAGE\_PASSWORD}}
+\index{ERROR\_MESSAGE\_PASSWORD@{ERROR\_MESSAGE\_PASSWORD}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE\_PASSWORD}{ERROR\_MESSAGE\_PASSWORD}}
+{\footnotesize\ttfamily const ERROR\+\_\+\+MESSAGE\+\_\+\+PASSWORD \char`\"{}The passwords are not the same.\char`\"{}}
+
+\begin{quote}
+Error message when both passwords are not the same \end{quote}
+\mbox{\Hypertarget{register_8php_ad36b49af8843899c6cddce344570b2ec}\label{register_8php_ad36b49af8843899c6cddce344570b2ec}} 
+\index{register.php@{register.php}!ERROR\_MESSAGE\_USERNAME@{ERROR\_MESSAGE\_USERNAME}}
+\index{ERROR\_MESSAGE\_USERNAME@{ERROR\_MESSAGE\_USERNAME}!register.php@{register.php}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MESSAGE\_USERNAME}{ERROR\_MESSAGE\_USERNAME}}
+{\footnotesize\ttfamily const ERROR\+\_\+\+MESSAGE\+\_\+\+USERNAME \char`\"{}The username is already used.\char`\"{}}
+
+\begin{quote}
+Error message when the usernamiis already used \end{quote}

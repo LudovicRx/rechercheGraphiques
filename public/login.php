@@ -24,6 +24,7 @@ $password = "";
 $errors = array();
 
 if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
+    $userDB = new LUserDB();
     $tmpEmail = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     if (filter_var($tmpEmail, FILTER_VALIDATE_EMAIL)) {
         $email = $tmpEmail;
@@ -32,10 +33,10 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
 
     // If email and password are valid
     if (strlen($email) > 0 && strlen($password) > 0) {
-        $user = LUserDB::getUserByEmail($email);
+        $user = $userDB->getUserByEmail($email);
         if ($user) {
-            if (LUserDB::verifyPassword($user->Id, $password)) {
-                $_SESSION["idUser"] = $user->Id;
+            if ($userDB->verifyPassword($user->Id, $password)) {
+                $_SESSION["user"] = $user;
                 header("Location: index.php");
                 exit();
             }
@@ -77,11 +78,11 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <label for="inputPassword" class="visually-hidden">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
             <?= displayError($errors) ?>
-            <div class="checkbox mb-3">
+            <!-- <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
-            </div>
+            </div> -->
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Sign in" name="submit"></input>
             <a href="register.php">You do not have an account ? Create one by clicking here !</a>
             <p class="mt-5 mb-3 text-muted">&copy; 2021</p>

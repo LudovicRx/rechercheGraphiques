@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "$_degilrtuv",
+  0: "$_defgilrtuv",
   1: "el",
-  2: "dil",
-  3: "_giuv",
-  4: "$t",
+  2: "dfilr",
+  3: "_degiuv",
+  4: "$et",
   5: "r"
 };
 
