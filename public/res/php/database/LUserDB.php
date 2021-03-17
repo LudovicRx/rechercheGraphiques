@@ -16,7 +16,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'const.inc.php';
 class LUserDB
 {
     /**>Instance of database */
-    private $dbInstance = null;
+    // private $dbInstance = null;
 
     /**>Prepare statement for get user by id */
     private $psUserById = null;
@@ -53,26 +53,26 @@ class LUserDB
      */
     public function __construct()
     {
-        // Crée l'instance de la database
-        if ($this->dbInstance == null) {
-            try {
+        // // Crée l'instance de la database
+        // if ($this->dbInstance == null) {
+        //     try {
 
-                $dsn = DB_TYPE . ':host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME;
-                $this->dbInstance = new PDO($dsn, DB_USER, DB_PASS, array('charset' => DB_CHARSET));
-                $this->dbInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                echo "EDatabase Error: " . $e;
-                error_log($e->getMessage());
-                die();
-            }
-        }
+        //         $dsn = DB_TYPE . ':host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME;
+        //         $this->dbInstance = new PDO($dsn, DB_USER, DB_PASS, array('charset' => DB_CHARSET));
+        //         $this->dbInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //     } catch (PDOException $e) {
+        //         echo "EDatabase Error: " . $e;
+        //         error_log($e->getMessage());
+        //         die();
+        //     }
+        // }
 
         // Prepare all the queries
 
         // Prepare getUserById
         try {
             if ($this->psUserById == null) {
-                $this->psUserById = $this->dbInstance->prepare($this->sqlUserById);
+                $this->psUserById = EDatabase::getInstance()->prepare($this->sqlUserById);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -82,7 +82,7 @@ class LUserDB
         // Prepare getUserByEmail
         try {
             if ($this->psUserByEmail == null) {
-                $this->psUserByEmail = $this->dbInstance->prepare($this->sqlUserByEmail);
+                $this->psUserByEmail = EDatabase::getInstance()->prepare($this->sqlUserByEmail);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -92,7 +92,7 @@ class LUserDB
         // Prepare insertUser
         try {
             if ($this->psInsertUser == null) {
-                $this->psInsertUser = $this->dbInstance->prepare($this->sqlInsertUser);
+                $this->psInsertUser = EDatabase::getInstance()->prepare($this->sqlInsertUser);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -102,7 +102,7 @@ class LUserDB
         // Prepare updatePassword
         try {
             if ($this->psUpdatePassword == null) {
-                $this->psUpdatePassword = $this->dbInstance->prepare($this->sqlUpdatePassword);
+                $this->psUpdatePassword = EDatabase::getInstance()->prepare($this->sqlUpdatePassword);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -112,7 +112,7 @@ class LUserDB
         // Prepare updatePassword
         try {
             if ($this->psVerifyPassword == null) {
-                $this->psVerifyPassword = $this->dbInstance->prepare($this->sqlVerifyPassword);
+                $this->psVerifyPassword = EDatabase::getInstance()->prepare($this->sqlVerifyPassword);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -122,7 +122,7 @@ class LUserDB
         // Prepare updateUser
         try {
             if ($this->psUpdateUser == null) {
-                $this->psUpdateUser = $this->dbInstance->prepare($this->sqlUpdateUser);
+                $this->psUpdateUser = EDatabase::getInstance()->prepare($this->sqlUpdateUser);
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
