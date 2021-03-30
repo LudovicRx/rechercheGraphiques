@@ -15,125 +15,65 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'const.inc.php';
  */
 class LUserDB
 {
-    /**>Instance of database */
-    // private $dbInstance = null;
+    /**>Connection to database */
+    private $dbConnection = null;
 
     /**>Prepare statement for get user by id */
     private $psUserById = null;
     /**>Sql for det user by id */
-    private $sqlUserById = "SELECT id, email, username, password FROM users WHERE id = :ID;";
+    private $sqlUserById = "";
 
     /**>Prepare statement for user by email */
     private $psUserByEmail = null;
     /**>Sql for user by email */
-    private $sqlUserByEmail = "SELECT id, email, username, password FROM users WHERE email LIKE :EMAIL;";
+    private $sqlUserByEmail = "";
 
     /**>Prepare statement for insert user */
     private $psInsertUser = null;
     /**>Sql for insert user */
-    private $sqlInsertUser = "INSERT INTO users (email, username, password) VALUES(:EMAIL, :USERNAME, :PASSWORD)";
+    private $sqlInsertUser = "";
 
     /**>Preapre statement for update password */
     private $psUpdatePassword = null;
     /**>Sql for update password */
-    private $sqlUpdatePassword = "UPDATE users SET password = :PASSWORD WHERE id LIKE :ID";
+    private $sqlUpdatePassword = "";
 
     /**>Prepare for verify password */
     private $psVerifyPassword = null;
     /**>Sql for verify password */
-    private $sqlVerifyPassword =  "SELECT password FROM users WHERE id = :ID";
+    private $sqlVerifyPassword =  "";
 
     /**>Prepare for update user */
     private $psUpdateUser = null;
     /**>Sql for update user */
-    private $sqlUpdateUser = "UPDATE users SET username = :USERNAME WHERE id LIKE :ID";
+    private $sqlUpdateUser = "";
 
     /**
      * Create an instance of LUserDB that can make queries on the database
      */
     public function __construct()
     {
-        // // Crée l'instance de la database
-        // if ($this->dbInstance == null) {
-        //     try {
-
-        //         $dsn = DB_TYPE . ':host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME;
-        //         $this->dbInstance = new PDO($dsn, DB_USER, DB_PASS, array('charset' => DB_CHARSET));
-        //         $this->dbInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //     } catch (PDOException $e) {
-        //         echo "EDatabase Error: " . $e;
-        //         error_log($e->getMessage());
-        //         die();
-        //     }
-        // }
+        // Sets all the sql queries
+        $this->sqlUserById = "SELECT id, email, username, password FROM users WHERE id = :ID;";
+        $this->sqlUserByEmail = "SELECT id, email, username, password FROM users WHERE email LIKE :EMAIL;";
+        $this->sqlInsertUser = "INSERT INTO users (email, username, password) VALUES(:EMAIL, :USERNAME, :PASSWORD)";
+        $this->sqlUpdatePassword = "UPDATE users SET password = :PASSWORD WHERE id LIKE :ID";
+        $this->sqlVerifyPassword =  "SELECT password FROM users WHERE id = :ID";
+        $this->sqlUpdateUser = "UPDATE users SET username = :USERNAME WHERE id LIKE :ID";
 
         // Prepare all the queries
-
-        // Prepare getUserById
         try {
-            if ($this->psUserById == null) {
-                $this->psUserById = EDatabase::getInstance()->prepare($this->sqlUserById);
-            }
+            $this->dbConnection = EDatabase::getInstance();
+            $this->psUserById =  $this->dbConnection ->prepare($this->sqlUserById);
+            $this->psUserByEmail =  $this->dbConnection ->prepare($this->sqlUserByEmail);
+            $this->psInsertUser =  $this->dbConnection ->prepare($this->sqlInsertUser);
+            $this->psUpdatePassword =  $this->dbConnection ->prepare($this->sqlUpdatePassword);
+            $this->psVerifyPassword =  $this->dbConnection ->prepare($this->sqlVerifyPassword);
+            $this->psUpdateUser =  $this->dbConnection ->prepare($this->sqlUpdateUser);
         } catch (PDOException $e) {
             echo $e->getMessage();
             error_log($e->getMessage());
         }
-
-        // Prepare getUserByEmail
-        try {
-            if ($this->psUserByEmail == null) {
-                $this->psUserByEmail = EDatabase::getInstance()->prepare($this->sqlUserByEmail);
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            error_log($e->getMessage());
-        }
-
-        // Prepare insertUser
-        try {
-            if ($this->psInsertUser == null) {
-                $this->psInsertUser = EDatabase::getInstance()->prepare($this->sqlInsertUser);
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            error_log($e->getMessage());
-        }
-
-        // Prepare updatePassword
-        try {
-            if ($this->psUpdatePassword == null) {
-                $this->psUpdatePassword = EDatabase::getInstance()->prepare($this->sqlUpdatePassword);
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            error_log($e->getMessage());
-        }
-
-        // Prepare updatePassword
-        try {
-            if ($this->psVerifyPassword == null) {
-                $this->psVerifyPassword = EDatabase::getInstance()->prepare($this->sqlVerifyPassword);
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            error_log($e->getMessage());
-        }
-
-        // Prepare updateUser
-        try {
-            if ($this->psUpdateUser == null) {
-                $this->psUpdateUser = EDatabase::getInstance()->prepare($this->sqlUpdateUser);
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            error_log($e->getMessage());
-        }
-    }
-    /**
-     * Set the clone to private so we can't clone an LUserDB object
-     */
-    private function __clone()
-    {
     }
 
     /**
@@ -259,17 +199,6 @@ class LUserDB
     }
 
     /**
-     * Hash the password
-     *
-     * @param string $password password to hash
-     * @return string password that is hashed
-     */
-    private static function hashPassword(string $password)
-    {
-        return password_hash($password, PASSWORD_BCRYPT);
-    }
-
-    /**
      * Update the user
      *
      * @param int $id id of the user
@@ -287,5 +216,16 @@ class LUserDB
             echo $e->getMessage();
         }
         return $returnResult;
+    }
+
+    /**
+     * Hash the password
+     *
+     * @param string $password password to hash
+     * @return string password that is hashed
+     */
+    private static function hashPassword(string $password)
+    {
+        return password_hash($password, PASSWORD_BCRYPT);
     }
 }
