@@ -78,7 +78,8 @@ var columnsAreaChart = [
 var optionsAreaChart = {
     title: 'Company Performance',
     curveType: 'function',
-    legend: { position: 'bottom' }
+    legend: { position: 'bottom' },
+    areaOpacity: 0.8
 };
 
 /**
@@ -131,6 +132,13 @@ google.charts.setOnLoadCallback(function () { drawChart(TYPE_CHARTS.AREA_CHART, 
 google.charts.setOnLoadCallback(function () { drawChart(TYPE_CHARTS.LINE_CHART, LINE_CHART_DIV, rowsLineChart, columnsLineChart, optionsLineChart) });
 google.charts.setOnLoadCallback(drawBarChart);
 
+function drawCharts() {
+    drawPieChart(PIE_CHART_DIV, columnsPieChart, rowsPieChart, optionsPieChart);
+    drawChart(TYPE_CHARTS.AREA_CHART, AREA_CHART_DIV, rowsAreaChart, columnsAreaChart, optionsAreaChart);
+    drawChart(TYPE_CHARTS.LINE_CHART, LINE_CHART_DIV, rowsLineChart, columnsLineChart, optionsLineChart);
+    drawBarChart();
+}
+
 /**
  * Set the dataas for a graph
  * @param {string[][]} columns bidimensional table with type of column and name
@@ -180,14 +188,42 @@ function selectType(type) {
  */
 function drawChart(chartType, nameDiv, columns, rows, options) {
     let func = selectType(chartType);
-    var chart = new func(document.getElementById(nameDiv));
+    let divChart = document.getElementById(nameDiv);
+    var chart = new func(divChart);
 
-    google.visualization.events.addListener(chart, 'ready', function () {
-        img.innerHTML = '<img src="' + chart.getImageURI() + '">';
-        // console.log(img.innerHTML);
-    });
+    google.visualization.events.addListener(chart, 'ready', function () { createSaveButton(divChart) });
 
     chart.draw(setData(columns, rows), options);
+}
+
+/**
+ * Create a save button
+ * @param {HTMLElement} divChart name of the div where the chart is
+ */
+function createSaveButton(divChart) {
+    var a = document.createElement("a");
+    a.href = getSvg(divChart);
+    a.classList.add("btn", "btn-light");
+    a.innerHTML = `<i class="bi bi-three-dots-vertical"></i>`;
+    a.download = "graph.svg";
+    divChart.parentElement.getElementsByClassName("options")[0].innerHTML = a.outerHTML;
+}
+
+/**
+ * Get the svg href
+ * @param {HTMLElement} divChart div of the chart
+ * @returns the svg href
+ */
+function getSvg(divChart) {
+    // https://stackoverflow.com/questions/12628968/how-can-i-save-svg-code-as-a-svg-image
+    // https://stackoverflow.com/questions/38477972/javascript-save-svg-element-to-file-on-disk
+    // https://code-boxx.com/create-save-files-javascript/
+    // https://stackoverflow.com/questions/23218174/how-do-i-save-export-an-svg-file-after-creating-an-svg-with-d3-js-ie-safari-an
+    // https://css-tricks.com/lodge/svg/09-svg-data-uris/ 
+
+    var svg = divChart.getElementsByTagName("svg")[0];
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg.outerHTML);
 }
 
 /**

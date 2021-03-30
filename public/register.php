@@ -54,6 +54,7 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             if ($password == $passwordVerify) {
                 if ($userDB->insertUser($email, $username, $password)) {
                     header("Location: login.php");
+                    exit();
                 } else {
                     array_push($errors, ERROR_MESSAGE_DATABASE);
                 }

@@ -5,7 +5,8 @@
  *  @file
  *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Login page
- *  @author ludovic.rx@eduge.ch
+ *  @author Mark Otto, Jacob Thornton, and Bootstrap contributors 
+ *  @author last modification : ludovic.rx@eduge.ch
  */
 
 session_start();
@@ -50,9 +51,11 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors, last modification Ludovic Roux">
+    <meta name="generator" content="Hugo 0.82.0">
     <title>Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">

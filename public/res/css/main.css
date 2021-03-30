@@ -7,15 +7,26 @@
     margin:0px;
     padding:0px;
 }
-
+/* 
 .graphContainer {
     width:98vw;
     height:50vh;
     display:flex;   
     flex-flow: row;
-}
+} */
 
 .graphContainer > div {
-    width:50%;
     height:100%;
+}
+
+.overflow-scroll-vertical {
+    overflow-y:scroll;
+}
+
+.max-vh-75 {
+    max-height: 75vh;
+}
+
+.vh-50 {
+    height :75vh;
 }

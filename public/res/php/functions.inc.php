@@ -25,3 +25,24 @@ function displayError(array $errors): string
 
   return $result;
 }
+
+
+/**
+ * Displays the login if not connected, else page for parameter
+ *
+ * @param LUser $user user 
+ * @return string result as HTML 
+ */
+function displayLogin(LUser $user)
+{
+  $href = "";
+  $text = "";
+  if ($user === null) {
+    $href = "login.php";
+    $text = "Login";
+  } else {
+    $href = "account.php";
+    $text = $user->Username;
+  }
+  return "<a class=\"nav-link btn btn-outline-dark\" href=\"$href\">$text</a>";
+}
