@@ -78,11 +78,6 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <label for="inputPassword" class="visually-hidden">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
             <?= displayError($errors) ?>
-            <!-- <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div> -->
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Sign in" name="submit"></input>
             <a href="register.php">You do not have an account ? Create one by clicking here !</a>
             <p class="mt-5 mb-3 text-muted">&copy; 2021</p>

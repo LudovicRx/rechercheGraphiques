@@ -14,7 +14,6 @@ session_start();
 if(isset($_SESSION["user"])) {
     
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
