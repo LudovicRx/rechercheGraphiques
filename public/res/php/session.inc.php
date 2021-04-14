@@ -2,7 +2,7 @@
 /** Index
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Functions about session
  *  @author ludovic.rx@eduge.ch
  */

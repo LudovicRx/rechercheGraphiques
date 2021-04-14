@@ -3,7 +3,7 @@
 /** Index
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Main page
  *  @author ludovic.rx@eduge.ch
  */
@@ -33,24 +33,26 @@ $user = getUserSession();
 
     <?php include_once(HEADER_PATH); ?>
 
+
+        <input type="file">
     <div class="container-xl overflow-auto mt-5 max-vh-75">
         <div class="row">
             <div class="col">
                 <div class="w-100 vh-50">
                     <div id="area_chart" class="w-100 h-75 graphContainer"></div>
-                    <div class="options float-end"></div>
+                    <?php include(CHART_SETTINGS_PATH); ?>
                 </div>
                 <div class="w-100 vh-50">
                     <div id="pie_chart" class="w-100 h-75 graphContainer"></div>
-                    <div class="options float-end"></div>
+                    <?php include(CHART_SETTINGS_PATH); ?>
                 </div>
                 <div class="w-100 vh-50">
                     <div id="line_chart" class="w-100 h-75 graphContainer"></div>
-                    <div class="options float-end"></div>
+                    <?php include(CHART_SETTINGS_PATH); ?>
                 </div>
                 <div class="w-100 vh-50">
                     <div id="barchart_values" class="w-100 h-75 graphContainer"></div>
-                    <div class="options float-end"></div>
+                    <?php include(CHART_SETTINGS_PATH); ?>
                 </div>
             </div>
         </div>
@@ -82,17 +84,12 @@ $user = getUserSession();
         </div>
     </div>
 
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <!-- A ajouter pour pouvoir utiliser google chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <!-- <script src="https:/cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.16/svg.min.js"></script> -->
     <script type="text/javascript" src="res/js/chart.js"></script>
     <script type="text/javascript" src="res/js/main.js"></script>
-    <script>
-        // Récupérer le code svg
-        // https://stackoverflow.com/questions/23218174/how-do-i-save-export-an-svg-file-after-creating-an-svg-with-d3-js-ie-safari-an
-        var url = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(area_chart);
-    </script>
 </body>
 
 </html>

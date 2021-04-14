@@ -3,7 +3,7 @@
 /** Login
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Login page
  *  @author Mark Otto, Jacob Thornton, and Bootstrap contributors 
  *  @author last modification : ludovic.rx@eduge.ch

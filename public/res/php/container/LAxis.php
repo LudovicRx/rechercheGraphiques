@@ -3,7 +3,7 @@
 /** LAxis
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief Class LAxis
  *  @author ludovic.rx@eduge.ch
  */

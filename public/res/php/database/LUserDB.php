@@ -3,7 +3,7 @@
 /** LUserDB
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 Recherche graphiques, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche graphiques, MIT License, See the LICENSE file for copying permissions.
  *  @brief Class LUserDB
  *  @author ludovic.rx@eduge.ch
  */
@@ -15,9 +15,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'const.inc.php';
  */
 class LUserDB
 {
-    /**>Connection to database */
-    private $dbConnection = null;
-
     /**>Prepare statement for get user by id */
     private $psUserById = null;
     /**>Sql for det user by id */
@@ -63,13 +60,12 @@ class LUserDB
 
         // Prepare all the queries
         try {
-            $this->dbConnection = EDatabase::getInstance();
-            $this->psUserById =  $this->dbConnection ->prepare($this->sqlUserById);
-            $this->psUserByEmail =  $this->dbConnection ->prepare($this->sqlUserByEmail);
-            $this->psInsertUser =  $this->dbConnection ->prepare($this->sqlInsertUser);
-            $this->psUpdatePassword =  $this->dbConnection ->prepare($this->sqlUpdatePassword);
-            $this->psVerifyPassword =  $this->dbConnection ->prepare($this->sqlVerifyPassword);
-            $this->psUpdateUser =  $this->dbConnection ->prepare($this->sqlUpdateUser);
+            $this->psUserById =  EDatabase::getInstance()->prepare($this->sqlUserById);
+            $this->psUserByEmail =  EDatabase::getInstance()->prepare($this->sqlUserByEmail);
+            $this->psInsertUser =  EDatabase::getInstance()->prepare($this->sqlInsertUser);
+            $this->psUpdatePassword =  EDatabase::getInstance() ->prepare($this->sqlUpdatePassword);
+            $this->psVerifyPassword =  EDatabase::getInstance()->prepare($this->sqlVerifyPassword);
+            $this->psUpdateUser =  EDatabase::getInstance()->prepare($this->sqlUpdateUser);
         } catch (PDOException $e) {
             echo $e->getMessage();
             error_log($e->getMessage());

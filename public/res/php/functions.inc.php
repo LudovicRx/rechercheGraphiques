@@ -3,7 +3,7 @@
 /** Functions for the project
  *  -------
  *  @file
- *  @copyright Copyright (c) 2020 Recherche graphiques, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche graphiques, MIT License, See the LICENSE file for copying permissions.
  *  @brief All the general functions for the project
  *  @author ludovic.rx@eduge.ch
  */
@@ -33,7 +33,7 @@ function displayError(array $errors): string
  * @param LUser $user user 
  * @return string result as HTML 
  */
-function displayLogin(LUser $user)
+function displayLogin($user)
 {
   $href = "";
   $text = "";

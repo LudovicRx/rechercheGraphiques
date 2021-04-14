@@ -1,6 +1,6 @@
 /** Chart 
  *  -------
- *  @copyright Copyright (c) 2020 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
  *  @brief File that handle charts in js
  *  @author ludovic.rx@eduge.ch
  */
@@ -203,8 +203,8 @@ function drawChart(chartType, nameDiv, columns, rows, options) {
 function createSaveButton(divChart) {
     var a = document.createElement("a");
     a.href = getSvg(divChart);
-    a.classList.add("btn", "btn-light");
-    a.innerHTML = `<i class="bi bi-three-dots-vertical"></i>`;
+    a.innerHTML = "Save";
+    a.classList.add("dropdown-item");
     a.download = "graph.svg";
     divChart.parentElement.getElementsByClassName("options")[0].innerHTML = a.outerHTML;
 }

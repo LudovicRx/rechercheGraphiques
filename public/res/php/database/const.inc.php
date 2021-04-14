@@ -1,7 +1,7 @@
 <?php
 /** Constants User
  *  -------
- *  @copyright Copyright (c) 2020 Constantes User, MIT License, See the LICENSE file for copying permissions.
+ *  @copyright Copyright (c) 2021 Constantes User, MIT License, See the LICENSE file for copying permissions.
  *  @brief Constant for DB
  *  @author ludovic.rx@eduge.ch
  */
