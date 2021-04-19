@@ -41,15 +41,22 @@ class LTools
    */
   public static function displayLogin($user)
   {
-    $href = "";
-    $text = "";
+    $result = "";
     if ($user === null) {
-      $href = "login.php";
-      $text = "Login";
+      $result = "<a class=\"nav-link btn btn-outline-dark\" href=\"login.php\">Login</a>";
     } else {
-      $href = "account.php";
-      $text = $user->Username;
+      $result = "<div class=\"dropdown\">";
+      $result .=  "<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">";
+      $result .= $user->Username;
+      $result .= "</button>";
+      $result .= "<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">";
+      $result .= "<a class=\"dropdown-item\" href=\"account.php\">Account</a>";
+      $result .= "<div class=\"dropdown-divider\"></div>";
+      $result .= "<a class=\"dropdown-item\" href=\"signout.php\">Something else here</a>";
+      $result .= "</div>";
+      $result .= "</div>";
+
     }
-    return "<a class=\"nav-link btn btn-outline-dark\" href=\"$href\">$text</a>";
+    return $result;
   }
 }

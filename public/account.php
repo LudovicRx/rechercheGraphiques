@@ -9,9 +9,9 @@
  */
 
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "all.inc.php");
-
+$session = new LSession();
 /**> User (null if not connected)) */
-$user = getUserSession();
+$user = $session->getUserSession();
 
 ?>
 <!DOCTYPE html>
