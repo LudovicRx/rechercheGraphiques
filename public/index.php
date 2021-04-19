@@ -10,8 +10,9 @@
 
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "all.inc.php");
 
+$session = new LSession();
 /**> User (null if not connected)) */
-$user = getUserSession();
+$user = $session->getUserSession();
 
 ?>
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ $user = getUserSession();
     <?php include_once(HEADER_PATH); ?>
 
 
-        <input type="file">
+    <input type="file">
     <div class="container-xl overflow-auto mt-5 max-vh-75">
         <div class="row">
             <div class="col">

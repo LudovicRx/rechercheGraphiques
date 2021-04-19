@@ -12,7 +12,7 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <?= displayLogin($user) ?>
+                    <?= LTools::displayLogin($user) ?>
                 </div>
             </div>
         </div>

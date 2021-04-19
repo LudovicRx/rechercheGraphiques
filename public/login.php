@@ -9,8 +9,8 @@
  *  @author last modification : ludovic.rx@eduge.ch
  */
 
-session_start();
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "all.inc.php");
+$session = new LSession();
 
 /**> Error message when a user can't connect */
 define("ERROR_MESSAGE", "The email or the pasword is wrong ;-;");
@@ -37,7 +37,7 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
         $user = $userDB->getUserByEmail($email);
         if ($user) {
             if ($userDB->verifyPassword($user->Id, $password)) {
-                $_SESSION["user"] = $user;
+                $session->setUserSession($user);
                 header("Location: index.php");
                 exit();
             }
@@ -51,7 +51,7 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors, last modification Ludovic Roux">
@@ -80,7 +80,7 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
             <label for="inputPassword" class="visually-hidden">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
-            <?= displayError($errors) ?>
+            <?= LTools::displayError($errors) ?>
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Sign in" name="submit"></input>
             <a href="register.php">You do not have an account ? Create one by clicking here !</a>
             <p class="mt-5 mb-3 text-muted">&copy; 2021</p>

@@ -44,7 +44,7 @@ class EDatabase
             } catch (PDOException $e) {
                 echo "EDatabase Error: " . $e;
                 error_log($e->getMessage());
-                die();
+                exit();
             }
         }
         return self::$objInstance;

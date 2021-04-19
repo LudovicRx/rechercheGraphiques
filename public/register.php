@@ -105,7 +105,7 @@ if (filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING)) {
             <input type="password" id="inputPassword" class="form-control m-0" placeholder="Password" required name="password">
             <label for="inputPasswordVerify" class="visually-hidden">Password Verify</label>
             <input type="password" id="inputPasswordVerify" class="form-control" placeholder="Password Verify" required name="passwordVerify">
-            <?= displayError($errors) ?>
+            <?= LTools::displayError($errors) ?>
             <!-- <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me

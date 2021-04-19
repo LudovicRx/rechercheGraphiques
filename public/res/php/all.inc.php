@@ -16,5 +16,6 @@ require_once(CONTAINER_PATH . "LAxis.php");
 require_once(CONTAINER_PATH . "LChart.php");
 require_once(CONTAINER_PATH . "LUser.php");
 
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "functions.inc.php");
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "session.inc.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR . "LTools.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR . "LSession.php");
+
