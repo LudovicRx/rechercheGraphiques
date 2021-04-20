@@ -1,10 +1,10 @@
 <?php
 
-/** Index
+/** LSession
  *  -------
  *  @file
  *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
- *  @brief Functions about session
+ *  @brief Class for session
  *  @author ludovic.rx@eduge.ch
  */
 

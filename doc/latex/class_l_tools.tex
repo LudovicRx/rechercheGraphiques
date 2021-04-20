@@ -1,0 +1,81 @@
+\hypertarget{class_l_tools}{}\doxysection{LTools Class Reference}
+\label{class_l_tools}\index{LTools@{LTools}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_l_tools_a89e5e366a6b0c6e7a3f751ee7fe0f120}{display\+Error}} (array \$errors)
+\item 
+static \mbox{\hyperlink{class_l_tools_af74d3133551863398ed4a04264b12fae}{display\+Login}} (\$user)
+\item 
+static \mbox{\hyperlink{class_l_tools_aefbe643851167f268bdf9d44cd4a8936}{filter\+Input}} (\&\$errors, \$input\+Type, \$name, \$filter\+Sanitize, \$filter\+Validate=FILTER\+\_\+\+DEFAULT)
+\item 
+\mbox{\Hypertarget{class_l_tools_a77109af3077c7783d5c9c9eb1b76500c}\label{class_l_tools_a77109af3077c7783d5c9c9eb1b76500c}} 
+static {\bfseries define\+Language} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that has only static functions These are the functions for the project 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_tools_a89e5e366a6b0c6e7a3f751ee7fe0f120}\label{class_l_tools_a89e5e366a6b0c6e7a3f751ee7fe0f120}} 
+\index{LTools@{LTools}!displayError@{displayError}}
+\index{displayError@{displayError}!LTools@{LTools}}
+\doxysubsubsection{\texorpdfstring{displayError()}{displayError()}}
+{\footnotesize\ttfamily static display\+Error (\begin{DoxyParamCaption}\item[{array}]{\$errors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Display an error
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$error} & content of the error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string the error as HTML 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_l_tools_af74d3133551863398ed4a04264b12fae}\label{class_l_tools_af74d3133551863398ed4a04264b12fae}} 
+\index{LTools@{LTools}!displayLogin@{displayLogin}}
+\index{displayLogin@{displayLogin}!LTools@{LTools}}
+\doxysubsubsection{\texorpdfstring{displayLogin()}{displayLogin()}}
+{\footnotesize\ttfamily static display\+Login (\begin{DoxyParamCaption}\item[{}]{\$user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Displays the login if not connected, else page for parameter
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\hyperlink{class_l_user}{LUser}} & {\em \$user} & user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string result as HTML 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_l_tools_aefbe643851167f268bdf9d44cd4a8936}\label{class_l_tools_aefbe643851167f268bdf9d44cd4a8936}} 
+\index{LTools@{LTools}!filterInput@{filterInput}}
+\index{filterInput@{filterInput}!LTools@{LTools}}
+\doxysubsubsection{\texorpdfstring{filterInput()}{filterInput()}}
+{\footnotesize\ttfamily static filter\+Input (\begin{DoxyParamCaption}\item[{\&}]{\$errors,  }\item[{}]{\$input\+Type,  }\item[{}]{\$name,  }\item[{}]{\$filter\+Sanitize,  }\item[{}]{\$filter\+Validate = {\ttfamily FILTER\+\_\+DEFAULT} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sanitize an input and give to a variable the errors
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$errors} & contains the potential errors \\
+\hline
+int & {\em \$input\+Type} & type of the input \\
+\hline
+string & {\em \$name} & name of the input \\
+\hline
+int & {\em \$filter\+Sanitize} & filter to apply to the input \\
+\hline
+int & {\em \$filter\+Validate} & filter that validate the value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string sanitized value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+//wsl\$/\+Debian/var/www/html/menu/recherche\+Graphiques/public/res/php/\mbox{\hyperlink{_l_tools_8php}{LTools.\+php}}\end{DoxyCompactItemize}

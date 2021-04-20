@@ -56,7 +56,7 @@ class LUserDB
         $this->sqlInsertUser = "INSERT INTO users (email, username, password) VALUES(:EMAIL, :USERNAME, :PASSWORD)";
         $this->sqlUpdatePassword = "UPDATE users SET password = :PASSWORD WHERE id LIKE :ID";
         $this->sqlVerifyPassword =  "SELECT password FROM users WHERE id = :ID";
-        $this->sqlUpdateUser = "UPDATE users SET username = :USERNAME WHERE id LIKE :ID";
+        $this->sqlUpdateUser = "UPDATE users SET email = :EMAIL, username = :USERNAME  WHERE id LIKE :ID";
 
         // Prepare all the queries
         try {
@@ -119,7 +119,7 @@ class LUserDB
     /**
      * Verify if an email exists
      *
-     * @param string $email email tht we verify
+     * @param string $email email that we verify
      * @return bool true if the emai exists, else false
      */
     public function emailExists(string $email)
@@ -198,14 +198,16 @@ class LUserDB
      * Update the user
      *
      * @param int $id id of the user
+     * @param string $newEmail new email for the user
      * @param string $newUsername new username for the user
      * @return bool true if succeed, else false
      */
-    public function updateUser(int $id, string $newUsername)
+    public function updateUser(int $id, string $newEmail, string $newUsername)
     {
         $returnResult = false;
         try {
             $this->psUpdateUser->bindParam(":ID", $id, PDO::PARAM_INT);
+            $this->psUpdateUser->bindParam(":EMAIL", $newEmail, PDO::PARAM_STR);
             $this->psUpdateUser->bindParam(":USERNAME", $newUsername, PDO::PARAM_STR);
             $returnResult = $this->psUpdateUser->execute();
         } catch (PDOException $e) {

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['displayerror_60',['displayError',['../functions_8inc_8php.html#a995e00cb52fe822a3fa416a5ff5b9673',1,'functions.inc.php']]]
+  ['destroysession_73',['destroySession',['../class_l_session.html#a9aea96aaeaf1efd5531eb1867ee67ca6',1,'LSession']]],
+  ['displayerror_74',['displayError',['../class_l_tools.html#a89e5e366a6b0c6e7a3f751ee7fe0f120',1,'LTools']]],
+  ['displaylogin_75',['displayLogin',['../class_l_tools.html#af74d3133551863398ed4a04264b12fae',1,'LTools']]]
 ];

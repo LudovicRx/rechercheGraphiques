@@ -1,0 +1,50 @@
+\hypertarget{account_8php}{}\doxysection{//wsl\$/\+Debian/var/www/html/menu/recherche\+Graphiques/public/account.php File Reference}
+\label{account_8php}\index{//wsl\$/Debian/var/www/html/menu/rechercheGraphiques/public/account.php@{//wsl\$/Debian/var/www/html/menu/rechercheGraphiques/public/account.php}}
+
+
+Page for paramater of the account.  
+
+
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{account_8php_abefb3c26429d514777313e9a63d7cbac}\label{account_8php_abefb3c26429d514777313e9a63d7cbac}} 
+{\bfseries \$session} = new \mbox{\hyperlink{class_l_session}{LSession}}()
+\item 
+\mbox{\hyperlink{account_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} = \$session-\/$>$get\+User\+Session()
+\item 
+\mbox{\Hypertarget{account_8php_ad634f418b20382e2802f80532d76d3cd}\label{account_8php_ad634f418b20382e2802f80532d76d3cd}} 
+{\bfseries \$email} = \$user-\/$>$Email
+\item 
+\mbox{\Hypertarget{account_8php_a0eb82aa5f81cf845de4b36cd653c42cf}\label{account_8php_a0eb82aa5f81cf845de4b36cd653c42cf}} 
+{\bfseries \$username} = \$user-\/$>$Username
+\item 
+\mbox{\Hypertarget{account_8php_ab24faf4aa647cdcee494fc48524ad4ff}\label{account_8php_ab24faf4aa647cdcee494fc48524ad4ff}} 
+{\bfseries \$errors} = array()
+\item 
+\mbox{\Hypertarget{account_8php_ae3d3d669b10df11e6fc6f3b39ff34595}\label{account_8php_ae3d3d669b10df11e6fc6f3b39ff34595}} 
+{\bfseries if} (filter\+\_\+input(INPUT\+\_\+\+POST, \char`\"{}general\+Settings\char`\"{}, FILTER\+\_\+\+SANITIZE\+\_\+\+STRING))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Page for paramater of the account. 
+
+\hypertarget{account_8php_autotoc_md0}{}\doxysubsubsection{Index}\label{account_8php_autotoc_md0}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions. 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+\href{mailto:ludovic.rx@eduge.ch}{\texttt{ ludovic.\+rx@eduge.\+ch}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{account_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{account_8php_a598ca4e71b15a1313ec95f0df1027ca5}} 
+\index{account.php@{account.php}!\$user@{\$user}}
+\index{\$user@{\$user}!account.php@{account.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{$user}}
+{\footnotesize\ttfamily \$user = \$session-\/$>$get\+User\+Session()}
+
+\begin{quote}
+User (null if not connected)) \end{quote}

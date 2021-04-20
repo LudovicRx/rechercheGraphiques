@@ -1,10 +1,10 @@
 <?php
 
-/** Functions for the project
+/** LTools
  *  -------
  *  @file
  *  @copyright Copyright (c) 2021 Recherche graphiques, MIT License, See the LICENSE file for copying permissions.
- *  @brief All the general functions for the project
+ *  @brief Class for all the general functions of the project
  *  @author ludovic.rx@eduge.ch
  */
 
@@ -72,13 +72,24 @@ class LTools
   public static function filterInput(&$errors, $inputType, $name, $filterSanitize, $filterValidate = FILTER_DEFAULT)
   {
     $sanitizedVar = filter_input($inputType, $name, $filterSanitize);
-    if(!filter_var($sanitizedVar, $filterValidate)) {
+    if (!filter_var($sanitizedVar, $filterValidate)) {
       array_push($errors, "The value is not valid");
-    } 
+    }
     return $sanitizedVar;
   }
 
-  public static function defineLanguage() {
+  public static function defineLanguage()
+  {
+  }
 
+  /**
+   * Write a bool value as a string
+   *
+   * @param bool $value bool value to evaluate
+   * @return string bool as a string
+   */
+  public static function writeBool($value)
+  {
+    return $value ? "true" : "false";
   }
 }

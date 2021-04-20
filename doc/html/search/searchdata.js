@@ -1,11 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "$_defgilrtuv",
+  0: "$_adefgilrstuv",
   1: "el",
-  2: "dfilr",
-  3: "_degiuv",
-  4: "$et",
-  5: "r"
+  2: "aeilr",
+  3: "_defgisuv",
+  4: "$et"
 };
 
 var indexSectionNames =
@@ -14,8 +13,7 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "variables",
-  5: "pages"
+  4: "variables"
 };
 
 var indexSectionLabels =
@@ -24,7 +22,6 @@ var indexSectionLabels =
   1: "Data Structures",
   2: "Files",
   3: "Functions",
-  4: "Variables",
-  5: "Pages"
+  4: "Variables"
 };
 

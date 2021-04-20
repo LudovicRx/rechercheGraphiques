@@ -11,6 +11,7 @@ var searchData=
   ['_24password_8',['$password',['../login_8php.html#a607686ef9f99ea7c42f4f3dd3dbb2b0d',1,'$password():&#160;login.php'],['../register_8php.html#a607686ef9f99ea7c42f4f3dd3dbb2b0d',1,'$password():&#160;register.php']]],
   ['_24passwordverify_9',['$passwordVerify',['../register_8php.html#ad00821730d474b764793c5f77449ac1c',1,'register.php']]],
   ['_24type_10',['$Type',['../class_l_axis.html#adbca55da4197c2078a3b59e0ff027461',1,'LAxis']]],
-  ['_24username_11',['$Username',['../class_l_user.html#a0e2ea0d42b9b800eb5bf8660587f5f7f',1,'LUser']]],
-  ['_24username_12',['$username',['../register_8php.html#a0eb82aa5f81cf845de4b36cd653c42cf',1,'register.php']]]
+  ['_24user_11',['$user',['../account_8php.html#a598ca4e71b15a1313ec95f0df1027ca5',1,'$user():&#160;account.php'],['../index_8php.html#a598ca4e71b15a1313ec95f0df1027ca5',1,'$user():&#160;index.php']]],
+  ['_24username_12',['$Username',['../class_l_user.html#a0e2ea0d42b9b800eb5bf8660587f5f7f',1,'LUser']]],
+  ['_24username_13',['$username',['../register_8php.html#a0eb82aa5f81cf845de4b36cd653c42cf',1,'register.php']]]
 ];

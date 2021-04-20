@@ -15,14 +15,25 @@ $user = $session->getUserSession();
 $email = $user->Email;
 $username = $user->Username;
 $errors = array();
+$updateGeneralSucceed = false;
 
 
-if(filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
+if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
     $email = LTools::filterInput($errors, INPUT_POST, "email", FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
     $username = LTools::filterInput($errors, INPUT_POST, "username", FILTER_SANITIZE_STRING);
 
-    if(count($errors) === 0) {
-        
+    if (count($errors) === 0) {
+        $db = new LUserDB();
+        if (!$db->emailExists($email) || $email == $user->Email) {
+            if ($db->updateUser($user->Id, $email, $username)) {
+                $updateGeneralSucceed = true;
+                $session->setUserSession(new LUser($user->Id, $email, $username));
+            } else {
+                array_push($errors, "Update has failed");
+            }
+        } else {
+            array_push($errors, "Email is not valid");
+        }
     }
 }
 
@@ -69,7 +80,6 @@ if(filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
                 </div>
             </form>
         </div>
-
         <div class="container py-3">
             <fieldset>
                 <legend>
@@ -96,10 +106,32 @@ if(filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Success</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your account has been updated
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php include_once(FOOTER_PATH) ?>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="res/js/main.js"></script>
+    <script>
+        LToolsJS.showSuccessModal("successModal", <?= LTools::writeBool($updateGeneralSucceed) ?>);
+    </script>
 </body>
 
 </html>

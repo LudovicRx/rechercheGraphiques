@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,6 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RechercheGraphique
+   &#160;<span id="projectnumber">3</span>
    </div>
   </td>
  </tr>
@@ -46,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('files.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,22 +98,28 @@ $(function() {
 <tr id="row_0_0_0_0_0_0_0_0_"><td class="entry"><span style="width:112px;display:inline-block;">&#160;</span><span id="arr_0_0_0_0_0_0_0_0_" class="arrow" onclick="toggleFolder('0_0_0_0_0_0_0_0_')">&#9660;</span><span id="img_0_0_0_0_0_0_0_0_" class="iconfopen" onclick="toggleFolder('0_0_0_0_0_0_0_0_')">&#160;</span><a class="el" href="dir_e6a3f8c222d2cf58b4f5ab2bac03fd31.html" target="_self">public</a></td><td class="desc"></td></tr>
 <tr id="row_0_0_0_0_0_0_0_0_0_" class="even"><td class="entry"><span style="width:128px;display:inline-block;">&#160;</span><span id="arr_0_0_0_0_0_0_0_0_0_" class="arrow" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_')">&#9660;</span><span id="img_0_0_0_0_0_0_0_0_0_" class="iconfopen" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_')">&#160;</span><a class="el" href="dir_ac9373d78ba3fd11506cbb58b3cf4538.html" target="_self">res</a></td><td class="desc"></td></tr>
 <tr id="row_0_0_0_0_0_0_0_0_0_0_"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span id="arr_0_0_0_0_0_0_0_0_0_0_" class="arrow" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_')">&#9660;</span><span id="img_0_0_0_0_0_0_0_0_0_0_" class="iconfopen" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_')">&#160;</span><a class="el" href="dir_9ba37259eda08703090676668285235b.html" target="_self">php</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_0_" class="even"><td class="entry"><span style="width:160px;display:inline-block;">&#160;</span><span id="arr_0_0_0_0_0_0_0_0_0_0_0_" class="arrow" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_0_')">&#9660;</span><span id="img_0_0_0_0_0_0_0_0_0_0_0_" class="iconfopen" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_0_')">&#160;</span><a class="el" href="dir_1c2475692fdd17bd6c5880c140dda3b6.html" target="_self">database</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_0_0_"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="database_8inc_8php.html" target="_self">database.inc.php</a></td><td class="desc">Class <a class="el" href="class_e_database.html" title="Helper class encapsulating the PDO object.">EDatabase</a> </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_0_1_" class="even"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_user_d_b_8php.html" target="_self">LUserDB.php</a></td><td class="desc">Class <a class="el" href="class_l_user_d_b.html" title="Class that makes query on DB for users.">LUserDB</a> </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_1_"><td class="entry"><span style="width:176px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="functions_8inc_8php.html" target="_self">functions.inc.php</a></td><td class="desc">All the general functions for the project </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_2_" class="even"><td class="entry"><span style="width:176px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_axis_8php.html" target="_self">LAxis.php</a></td><td class="desc">Class <a class="el" href="class_l_axis.html" title="Class that contains an axis.">LAxis</a> </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_3_"><td class="entry"><span style="width:176px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_chart_8php.html" target="_self">LChart.php</a></td><td class="desc">Class <a class="el" href="class_l_chart.html" title="Class that is a container for charts.">LChart</a> </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_0_0_4_" class="even"><td class="entry"><span style="width:176px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_user_8php.html" target="_self">LUser.php</a></td><td class="desc">Class <a class="el" href="class_l_user.html" title="This class is a container for a user.">LUser</a> </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_1_"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="index_8php.html" target="_self">index.php</a></td><td class="desc">Main page </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_2_" class="even"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="login_8php.html" target="_self">login.php</a></td><td class="desc">Login page </td></tr>
-<tr id="row_0_0_0_0_0_0_0_0_3_"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="register_8php.html" target="_self">register.php</a></td><td class="desc">Register page </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_0_" class="even"><td class="entry"><span style="width:160px;display:inline-block;">&#160;</span><span id="arr_0_0_0_0_0_0_0_0_0_0_0_" class="arrow" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_0_')">&#9660;</span><span id="img_0_0_0_0_0_0_0_0_0_0_0_" class="iconfopen" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_0_')">&#160;</span><a class="el" href="dir_8bfceafea187481e0d74b7aa3fd7e480.html" target="_self">container</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_0_0_"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_axis_8php.html" target="_self">LAxis.php</a></td><td class="desc">Class <a class="el" href="class_l_axis.html" title="Class that contains an axis.">LAxis</a> </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_0_1_" class="even"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_chart_8php.html" target="_self">LChart.php</a></td><td class="desc">Class <a class="el" href="class_l_chart.html" title="Class that is a container for charts.">LChart</a> </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_0_2_"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_user_8php.html" target="_self">LUser.php</a></td><td class="desc">Class <a class="el" href="class_l_user.html" title="This class is a container for a user.">LUser</a> </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_1_" class="even"><td class="entry"><span style="width:160px;display:inline-block;">&#160;</span><span id="arr_0_0_0_0_0_0_0_0_0_0_1_" class="arrow" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_1_')">&#9660;</span><span id="img_0_0_0_0_0_0_0_0_0_0_1_" class="iconfopen" onclick="toggleFolder('0_0_0_0_0_0_0_0_0_0_1_')">&#160;</span><a class="el" href="dir_1c2475692fdd17bd6c5880c140dda3b6.html" target="_self">database</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_1_0_"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_e_database_8php.html" target="_self">EDatabase.php</a></td><td class="desc">Class <a class="el" href="class_e_database.html" title="Helper class encapsulating the PDO object.">EDatabase</a> </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_1_1_" class="even"><td class="entry"><span style="width:192px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_user_d_b_8php.html" target="_self">LUserDB.php</a></td><td class="desc">Class <a class="el" href="class_l_user_d_b.html" title="Class that makes query on DB for users.">LUserDB</a> </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_2_"><td class="entry"><span style="width:176px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_session_8php.html" target="_self">LSession.php</a></td><td class="desc">Class for session </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_0_0_3_" class="even"><td class="entry"><span style="width:176px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="_l_tools_8php.html" target="_self">LTools.php</a></td><td class="desc">Class for all the general functions of the project </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_1_"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="account_8php.html" target="_self">account.php</a></td><td class="desc">Page for paramater of the account </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_2_" class="even"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="index_8php.html" target="_self">index.php</a></td><td class="desc">Main page </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_3_"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="login_8php.html" target="_self">login.php</a></td><td class="desc">Login page </td></tr>
+<tr id="row_0_0_0_0_0_0_0_0_4_" class="even"><td class="entry"><span style="width:144px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="register_8php.html" target="_self">register.php</a></td><td class="desc">Register page </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
 </body>
 </html>
