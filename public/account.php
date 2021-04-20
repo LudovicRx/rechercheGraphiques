@@ -12,6 +12,19 @@ require_once(__DIR__ . DIRECTORY_SEPARATOR . "res" . DIRECTORY_SEPARATOR . "php"
 $session = new LSession();
 /**> User (null if not connected)) */
 $user = $session->getUserSession();
+$email = $user->Email;
+$username = $user->Username;
+$errors = array();
+
+
+if(filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
+    $email = LTools::filterInput($errors, INPUT_POST, "email", FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
+    $username = LTools::filterInput($errors, INPUT_POST, "username", FILTER_SANITIZE_STRING);
+
+    if(count($errors) === 0) {
+        
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -41,14 +54,14 @@ $user = $session->getUserSession();
                     <label class="visually-hidden" for="inlineFormInputGroupEmail">Email</label>
                     <div class="input-group">
                         <div class="input-group-text">@</i></div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupEmail" placeholder="Email" name="email">
+                        <input type="text" class="form-control" id="inlineFormInputGroupEmail" placeholder="Email" name="email" value="<?= $email ?>">
                     </div>
                 </div>
                 <div class="col-12">
                     <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
                     <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-person"></i></div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username" name="username">
+                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username" name="username" value="<?= $username ?>">
                     </div>
                 </div>
                 <div class="col-12">

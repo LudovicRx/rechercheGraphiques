@@ -58,4 +58,27 @@ class LTools
     }
     return $result;
   }
+
+  /**
+   * Sanitize an input and give to a variable the errors
+   *
+   * @param array $errors contains the potential errors
+   * @param int $inputType type of the input
+   * @param string $name name of the input
+   * @param int $filterSanitize filter to apply to the input
+   * @param int $filterValidate filter that validate the value
+   * @return string sanitized value
+   */
+  public static function filterInput(&$errors, $inputType, $name, $filterSanitize, $filterValidate = FILTER_DEFAULT)
+  {
+    $sanitizedVar = filter_input($inputType, $name, $filterSanitize);
+    if(!filter_var($sanitizedVar, $filterValidate)) {
+      array_push($errors, "The value is not valid");
+    } 
+    return $sanitizedVar;
+  }
+
+  public static function defineLanguage() {
+
+  }
 }
