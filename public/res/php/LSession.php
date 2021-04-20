@@ -51,6 +51,17 @@ class LSession
     }
 
     /**
+     * Destroy the session
+     *
+     * @return void
+     */
+    public function destroySession()
+    {
+        $_SESSION = null;
+        session_destroy();        
+    }
+
+    /**
      * Get a value from the session thanks the key
      *
      * @param string $key key in the session

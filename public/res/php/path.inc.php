@@ -18,3 +18,5 @@ define("CONTAINER_PATH", __DIR__ . DIRECTORY_SEPARATOR . "container" . DIRECTORY
 define("HEADER_PATH", CONTENT_PATH . "header.inc.php");
 /**>Path to get the dropup buttons for char settings */
 define("CHART_SETTINGS_PATH", CONTENT_PATH . "chartSettings.inc.php");
+/**>Path to get the footer */
+define("FOOTER_PATH", CONTENT_PATH . "footer.inc.php");

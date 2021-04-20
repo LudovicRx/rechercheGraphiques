@@ -46,13 +46,13 @@ class LTools
       $result = "<a class=\"nav-link btn btn-outline-dark\" href=\"login.php\">Login</a>";
     } else {
       $result .= "<div class=\"dropdown\">";
-      $result .= "  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownUser\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" data-bs-toggle=\"dropdown\">";
+      $result .= "  <button class=\"btn btn-dark dropdown-toggle\" type=\"button\" id=\"dropdownUser\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" data-bs-toggle=\"dropdown\">";
       $result .=      "Hello, $user->Username";
       $result .= "  </button>";
       $result .= "  <div class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"dropdownUser\">";
       $result .= "    <a class=\"dropdown-item\" href=\"account.php\">Account</a>";
       $result .= "    <div class=\"dropdown-divider\"></div>";
-      $result .= "    <a class=\"dropdown-item\" href=\"signout.php\">Signout</a>";
+      $result .= "    <a class=\"dropdown-item\" href=\"res/php/api/signout.php\">Signout</a>";
       $result .= "  </div>";
       $result .= "</div>";
     }
