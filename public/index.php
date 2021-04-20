@@ -59,6 +59,8 @@ $user = $session->getUserSession();
         </div>
     </div>
 
+
+
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#optionsGraph" aria-controls="optionsGraph">
         Button with data-bs-target
     </button>

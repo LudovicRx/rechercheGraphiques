@@ -8,10 +8,10 @@
  *  @author ludovic.rx@eduge.ch
  */
 
- /**
-  * Class that has only static functions
-  * These are the functions for the project
-  */
+/**
+ * Class that has only static functions
+ * These are the functions for the project
+ */
 class LTools
 {
   /**
@@ -45,17 +45,16 @@ class LTools
     if ($user === null) {
       $result = "<a class=\"nav-link btn btn-outline-dark\" href=\"login.php\">Login</a>";
     } else {
-      $result = "<div class=\"dropdown\">";
-      $result .=  "<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">";
-      $result .= $user->Username;
-      $result .= "</button>";
-      $result .= "<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">";
-      $result .= "<a class=\"dropdown-item\" href=\"account.php\">Account</a>";
-      $result .= "<div class=\"dropdown-divider\"></div>";
-      $result .= "<a class=\"dropdown-item\" href=\"signout.php\">Something else here</a>";
+      $result .= "<div class=\"dropdown\">";
+      $result .= "  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownUser\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" data-bs-toggle=\"dropdown\">";
+      $result .=      "Hello, $user->Username";
+      $result .= "  </button>";
+      $result .= "  <div class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"dropdownUser\">";
+      $result .= "    <a class=\"dropdown-item\" href=\"account.php\">Account</a>";
+      $result .= "    <div class=\"dropdown-divider\"></div>";
+      $result .= "    <a class=\"dropdown-item\" href=\"signout.php\">Signout</a>";
+      $result .= "  </div>";
       $result .= "</div>";
-      $result .= "</div>";
-
     }
     return $result;
   }
