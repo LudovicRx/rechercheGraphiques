@@ -23,10 +23,7 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
     $email = LTools::filterInput(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $username = LTools::filterInput(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 
-    if (
-        LTools::validateVar($email, FILTER_VALIDATE_EMAIL, $errors, "Email is not valid") &&
-        LTools::validateVar($username, FILTER_DEFAULT, $errors, "Username is not valid")
-    ) {
+    if (LTools::validateVar($email, FILTER_VALIDATE_EMAIL, $errors, "Email is not valid") &&  LTools::validateVar($username, FILTER_DEFAULT, $errors, "Username is not valid")) {
         $db = new LUserDB();
         if (LTools::verifyError(!$db->emailExists($email), $errors, "Email already exists") || $email == $user->Email) {
             if (LTools::verifyError($email != $user->Email || $username != $user->Username, $errors, "Email and username ar the same as before")) {
@@ -34,9 +31,11 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
                     array_push($success, "Your account has been updated");
                     $user = $session->setUserSession(new LUser($user->Id, $email, $username));
                 }
-            }   
+            }
         }
     }
+} else if (filter_input(INPUT_POST, "updatePassword", FILTER_SANITIZE_STRING)) {
+    $oldPassword = LTools::filterInput(INPUT_POST, "oldPassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
 
 ?>
@@ -49,6 +48,7 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="res/css/main.css">
 
@@ -57,10 +57,10 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
 
 <body class="d-flex flex-column h-100">
     <?php include_once(HEADER_PATH); ?>
-    <div class="container-md mt-lg-5 mt-md-3 mt-3 bg-light py-4">
+    <div class="container-md mt-lg-5 mt-md-3 mt-3 bg-light py-4 shadow-sm">
         <h2>Account Settings</h2>
         <hr>
-        <div class="container py-3">
+        <div class="container py-3 border-bottom">
             <h3>General Setting</h3>
             <form class="row row-cols-lg-auto g-3 align-items-center mb-3" method="POST" action="#">
                 <div class="col-12">
@@ -83,28 +83,24 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
             </form>
         </div>
         <div class="container py-3">
-            <fieldset>
-                <legend>
-                    <h3>Change Password</h3>
-                </legend>
-                <form class="col">
-                    <div class="col-lg-6 form-floating mb-3">
-                        <input type="password" class="form-control" id="inputOldPassword" placeholder="Old Password">
-                        <label for="inputOldPassword" class="form-label">Old Password</label>
-                    </div>
-                    <div class="col-lg-6 form-floating mb-3">
-                        <input type="password" class="form-control" id="inputNewPassword" placeholder="New password">
-                        <label for="inputNewPassword" class="form-label">New Password</label>
-                    </div>
-                    <div class="col-lg-6 form-floating mb-3">
-                        <input type="password" class="form-control" id="inputNewPasswordVerify" placeholder="Verify Password">
-                        <label for="inputNewPasswordVerify" class="form-label" name="inputNewPasswordVerify">Verify Password</label>
-                    </div>
-                    <div class="col-12">
-                        <input type="submit" class="btn btn-dark" value="Update Password" />
-                    </div>
-                </form>
-            </fieldset>
+            <h3>Change Password</h3>
+            <form class="col">
+                <div class="col-lg-6 form-floating mb-3">
+                    <input type="password" class="form-control" id="inputOldPassword" placeholder="Old Password">
+                    <label for="inputOldPassword" class="form-label">Old Password</label>
+                </div>
+                <div class="col-lg-6 form-floating mb-3">
+                    <input type="password" class="form-control" id="inputNewPassword" placeholder="New password">
+                    <label for="inputNewPassword" class="form-label">New Password</label>
+                </div>
+                <div class="col-lg-6 form-floating mb-3">
+                    <input type="password" class="form-control" id="inputNewPasswordVerify" placeholder="Verify Password">
+                    <label for="inputNewPasswordVerify" class="form-label" name="inputNewPasswordVerify">Verify Password</label>
+                </div>
+                <div class="col-12">
+                    <input type="submit" class="btn btn-dark" name="updatePassword" value="Update Password" />
+                </div>
+            </form>
         </div>
     </div>
 
