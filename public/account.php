@@ -1,6 +1,6 @@
 <?php
 
-/** Index
+/** Account
  *  -------
  *  @file
  *  @copyright Copyright (c) 2021 Recherche Graphique, MIT License, See the LICENSE file for copying permissions.
@@ -15,24 +15,26 @@ $user = $session->getUserSession();
 $email = $user->Email;
 $username = $user->Username;
 $errors = array();
+$success = array();
 $updateGeneralSucceed = false;
 
 
 if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
-    $email = LTools::filterInput($errors, INPUT_POST, "email", FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
-    $username = LTools::filterInput($errors, INPUT_POST, "username", FILTER_SANITIZE_STRING);
+    $email = LTools::filterInput(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $username = LTools::filterInput(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 
-    if (count($errors) === 0) {
+    if (
+        LTools::validateVar($email, FILTER_VALIDATE_EMAIL, $errors, "Email is not valid") &&
+        LTools::validateVar($username, FILTER_DEFAULT, $errors, "Username is not valid")
+    ) {
         $db = new LUserDB();
-        if (!$db->emailExists($email) || $email == $user->Email) {
-            if ($db->updateUser($user->Id, $email, $username)) {
-                $updateGeneralSucceed = true;
-                $session->setUserSession(new LUser($user->Id, $email, $username));
-            } else {
-                array_push($errors, "Update has failed");
-            }
-        } else {
-            array_push($errors, "Email is not valid");
+        if (LTools::verifyError(!$db->emailExists($email), $errors, "Email already exists") || $email == $user->Email) {
+            if (LTools::verifyError($email != $user->Email || $username != $user->Username, $errors, "Email and username ar the same as before")) {
+                if (LTools::verifyError($db->updateUser($user->Id, $email, $username), $errors, "Update has failed")) {
+                    array_push($success, "Your account has been updated");
+                    $user = $session->setUserSession(new LUser($user->Id, $email, $username));
+                }
+            }   
         }
     }
 }
@@ -65,14 +67,14 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
                     <label class="visually-hidden" for="inlineFormInputGroupEmail">Email</label>
                     <div class="input-group">
                         <div class="input-group-text">@</i></div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupEmail" placeholder="Email" name="email" value="<?= $email ?>">
+                        <input type="text" class="form-control" id="inlineFormInputGroupEmail" placeholder="Email" name="email" value="<?= $email ?>" required aria-required="true">
                     </div>
                 </div>
                 <div class="col-12">
                     <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
                     <div class="input-group">
                         <div class="input-group-text"><i class="bi bi-person"></i></div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username" name="username" value="<?= $username ?>">
+                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username" name="username" value="<?= $username ?>" required aria-required="true">
                     </div>
                 </div>
                 <div class="col-12">
@@ -106,12 +108,12 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="titleSuccessModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Success</h5>
+                    <h5 class="modal-title" id="titleSuccessModal">Success</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -124,13 +126,32 @@ if (filter_input(INPUT_POST, "generalSettings", FILTER_SANITIZE_STRING)) {
         </div>
     </div>
 
+    <!-- Error Modal -->
+    <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="titleErrorModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleErrorModal">Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    An error has occured
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php include_once(FOOTER_PATH) ?>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script type="text/javascript" src="res/js/main.js"></script>
     <script>
-        LToolsJS.showSuccessModal("successModal", <?= LTools::writeBool($updateGeneralSucceed) ?>);
+        LToolsJS.showSuccessErrorModal("successModal", <?= json_encode($success) ?>);
+        LToolsJS.showSuccessErrorModal("errorModal", <?= json_encode($errors) ?>)
     </script>
 </body>
 

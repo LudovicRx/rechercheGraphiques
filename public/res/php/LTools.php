@@ -60,36 +60,60 @@ class LTools
   }
 
   /**
-   * Sanitize an input and give to a variable the errors
+   * Sanitize an input
    *
-   * @param array $errors contains the potential errors
    * @param int $inputType type of the input
    * @param string $name name of the input
    * @param int $filterSanitize filter to apply to the input
-   * @param int $filterValidate filter that validate the value
    * @return string sanitized value
    */
-  public static function filterInput(&$errors, $inputType, $name, $filterSanitize, $filterValidate = FILTER_DEFAULT)
+  public static function filterInput($inputType, $name, $filterSanitize)
   {
-    $sanitizedVar = filter_input($inputType, $name, $filterSanitize);
-    if (!filter_var($sanitizedVar, $filterValidate)) {
-      array_push($errors, "The value is not valid");
-    }
-    return $sanitizedVar;
+    return filter_input($inputType, $name, $filterSanitize);
+  }
+
+  /**
+   * Validate a var
+   *
+   * @param mixed $var the var to validate
+   * @param int $filterValidate filter to apply
+   * @param array $errors errors that are stored
+   * @param string $textError text of the error
+   * @return bool true if var is validated else false
+   */
+  public static function validateVar($var, $filterValidate, &$errors, $textError)
+  {
+    return self::verifyError(filter_var($var, $filterValidate), $errors, $textError);
   }
 
   public static function defineLanguage()
   {
   }
 
+  // /**
+  //  * Write a bool value as a string
+  //  *
+  //  * @param bool $value bool value to evaluate
+  //  * @return string bool as a string
+  //  */
+  // public static function writeBool($value)
+  // {
+  //   return $value ? "true" : "false";
+  // }
+
   /**
-   * Write a bool value as a string
+   * Verify an expression and fill an array is there is an error
    *
-   * @param bool $value bool value to evaluate
-   * @return string bool as a string
+   * @param bool $expression expression to verify
+   * @param array $errors array that contains errors
+   * @param string $textError text of the error
+   * @return bool
    */
-  public static function writeBool($value)
+  public static function verifyError($expression, &$errors, $textError)
   {
-    return $value ? "true" : "false";
+    if (!$expression) {
+      array_push($errors, $textError);
+    }
+    return $expression;
   }
 }

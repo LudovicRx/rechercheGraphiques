@@ -33,7 +33,6 @@ $user = $session->getUserSession();
 
     <?php include_once(HEADER_PATH); ?>
 
-
     <input type="file">
     <div class="container-xl overflow-auto mt-5 max-vh-75">
         <div class="row">

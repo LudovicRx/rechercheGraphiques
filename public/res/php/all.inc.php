@@ -18,4 +18,3 @@ require_once(CONTAINER_PATH . "LUser.php");
 
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "LTools.php");
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "LSession.php");
-

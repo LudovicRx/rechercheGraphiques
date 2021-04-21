@@ -33,11 +33,12 @@ class LSession
       * Set a user in the session
       *
       * @param LUser $user user to set
-      * @return void
+      * @return LUser user that has been just addedd
       */
     public function setUserSession($user)
     {
         $this->setValueSession(self::INDEX_USER, $user);
+        return $user;
     }
 
     /**
